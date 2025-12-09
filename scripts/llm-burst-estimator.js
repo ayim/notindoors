@@ -51,7 +51,8 @@ const MODEL = 'z-ai/glm-4.6'; // override via env if needed
 const ENDPOINT = process.env.OPENROUTER_BASE_URL || 'https://openrouter.ai/api/v1/chat/completions';
 
 const promptTemplate = (pack) => {
-  const { name, subtitle = '', charging = {} } = pack;
+  const { name, subtitle = '' } = pack;
+  const charging = pack.charging || {};
   const fields = [
     'peak_port_w',
     'capacity_mah',
@@ -59,10 +60,10 @@ const promptTemplate = (pack) => {
     'charge_power',
     'charge_capacity',
     'sustained_load',
+    'discharge_duration',
+    'discharge_net_wh',
   ];
-  const lines = fields
-    .map(k => `${k}: ${charging[k] || ''}`)
-    .join('\n');
+  const lines = fields.map(k => `${k}: ${charging[k] || ''}`).join('\n');
   return `
 You are estimating 20-minute recharge energy (Wh gained in 20 minutes) for a laptop power bank using only the provided lab notes. Be conservative and data-grounded; do not hallucinate beyond what the text supports.
 
@@ -73,6 +74,7 @@ Outputs:
 - maxProfile: a short string summarizing the max input profile (e.g., "316W → 240W → 150W"); empty string if unknown
 
 Rules:
+- Ignore any existing burst fields; recompute fresh from the charging-sheet text.
 - If there is a charge_capacity line with Wh and a corresponding charge_duration line with minutes at a given W, scale that Wh linearly to 20 minutes as a conservative estimate (min(actual Wh, scaled Wh)).
 - Prefer higher-input tests for atMax; prefer 140W (or nearest) for at140W; if only one test, reuse it for both.
 - If no timing is provided, approximate atMax as min(peak_input_W * 20/60, reported charge_capacity Wh) when both exist; otherwise 0.
@@ -143,6 +145,10 @@ async function main() {
     if (!overwriteAll) {
       const hasNonLLMBurst = data.burst && !data.burst.estimatedByLLM;
       if (hasNonLLMBurst) continue;
+    }
+    if (!data.charging) {
+      console.warn(`Skipping ${file} (no charging data).`);
+      continue;
     }
     const prompt = promptTemplate(data);
     try {
