@@ -1,8 +1,143 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, ReferenceLine, LabelList } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, ReferenceLine, LabelList, Customized } from 'recharts';
 import { burstData as data } from './data/powerbanks/models';
 
 const maxStackedValue = Math.max(...data.map(item => item.totalValue));
+
+const truncate = (value, max = 32) => {
+  if (!value) return '';
+  return value.length > max ? `${value.slice(0, max - 1)}…` : value;
+};
+
+const TableOverlay = ({ xAxisMap, height, margin }) => {
+  const xAxisKey = Object.keys(xAxisMap || {})[0];
+  const xAxis = xAxisMap?.[xAxisKey];
+  const scale = xAxis?.scale;
+  const bandwidth = scale?.bandwidth ? scale.bandwidth() : 0;
+  if (!scale || !bandwidth) return null;
+
+  const baseY = height - (margin?.bottom ?? 0) + 10;
+  const range = scale.range();
+  const rangeStart = Array.isArray(range) ? range[0] : 0;
+  const rangeEnd = Array.isArray(range) ? range[1] : 0;
+  const headerWidth = 120; // keep header width fixed so we don't add phantom columns
+  const tableHeight = 120;
+  const rows = [0, 26, 50, 74, 98, tableHeight];
+  const rowHeights = rows.slice(1).map((r, i) => rows[i + 1] - rows[i]);
+  const rowLabels = ['Model', 'Peak In', '@Max', '@140W', 'Sustain / Profile'];
+  const headerX = rangeStart - headerWidth + 4;
+
+  return (
+    <g>
+      {/* row header column (keep inside plot area to avoid clipping) */}
+      <rect
+        x={headerX}
+        y={baseY}
+        width={headerWidth}
+        height={tableHeight}
+        fill="rgba(255,255,255,0.04)"
+        stroke="#1f1f1f"
+        strokeWidth="1"
+      />
+      {rows.map((r, idx) => (
+        <line
+          key={`row-header-${idx}`}
+          x1={headerX}
+          x2={rangeEnd}
+          y1={baseY + r}
+          y2={baseY + r}
+          stroke="#1f1f1f"
+          strokeWidth={1}
+        />
+      ))}
+      <foreignObject x={headerX} y={baseY} width={headerWidth} height={tableHeight}>
+        <div className="w-full h-full flex flex-col font-mono text-[10px] leading-tight text-gray-300 px-2 py-1">
+          {rowLabels.map((label, i) => (
+            <div
+              key={label}
+              style={{ height: `${rowHeights[i]}px` }}
+              className="flex items-center justify-start"
+            >
+              <span className={i === 0 ? 'text-white text-xs font-bold' : i === 4 ? 'text-gray-500' : ''}>
+                {label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </foreignObject>
+
+      {data.map(item => {
+        const x = scale(item.name);
+        return (
+          <rect
+            key={`${item.name}-bg`}
+            x={x}
+            y={baseY}
+            width={bandwidth}
+            height={tableHeight}
+            fill="rgba(255,255,255,0.02)"
+            stroke="#1f1f1f"
+            strokeWidth="1"
+          />
+        );
+      })}
+      {rows.map((r, idx) => (
+        <line
+          key={`row-${idx}`}
+          x1={rangeStart}
+          x2={rangeEnd}
+          y1={baseY + r}
+          y2={baseY + r}
+          stroke="#1f1f1f"
+          strokeWidth={1}
+        />
+      ))}
+
+      {data.map(item => {
+        const x = scale(item.name);
+        return (
+          <foreignObject key={item.name} x={x} y={baseY} width={bandwidth} height={tableHeight}>
+            <div className="w-full h-full font-mono text-[10px] leading-tight text-gray-300 px-1 py-1">
+              {[
+                <div
+                  key="name"
+                  className="text-white font-bold text-xs truncate text-center"
+                  title={item.subtitle || ''}
+                >
+                  {item.name.replace(/ \(.*?\)/, '')}
+                </div>,
+                <div key="maxW" className="text-neon-yellow font-bold text-center">
+                  {item.maxW}W
+                </div>,
+                <div key="atMax" className="text-neon-yellow font-bold text-center">
+                  {item.atMax}Wh
+                </div>,
+                <div key="at140" className="text-neon-cyan font-bold text-center">
+                  {item.at140W}Wh
+                </div>,
+                item.maxProfile ? (
+                  <div key="note" className="text-gray-600 truncate text-center">
+                    {truncate(item.maxProfile, 42)}
+                  </div>
+                ) : null,
+              ]
+                .filter(Boolean)
+                .map((node, i) => (
+                  <div
+                    key={i}
+                    style={{ height: `${rowHeights[i] || rowHeights[rowHeights.length - 1]}px` }}
+                    className="flex items-center justify-center"
+                  >
+                    {node}
+                  </div>
+                ))}
+            </div>
+          </foreignObject>
+        );
+      })}
+    </g>
+  );
+};
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
@@ -101,11 +236,11 @@ export default function PowerBankChart20Min() {
       </div>
       
       <div className="relative z-10 pr-4">
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="100%" height={360}>
           <BarChart
             data={data}
-            margin={{ top: 20, right: 0, left: 0, bottom: 0 }}
-            barCategoryGap="20%"
+            margin={{ top: 20, right: 0, left: 140, bottom: 150 }}
+            barCategoryGap="25%"
           >
             <defs>
               <linearGradient id="neonYellowGradient" x1="0" y1="0" x2="0" y2="1">
@@ -124,7 +259,7 @@ export default function PowerBankChart20Min() {
               tick={false}
               axisLine={{ stroke: '#333333' }}
               tickLine={false}
-              height={10}
+              height={0}
             />
             <YAxis 
               tick={{ fill: '#666', fontSize: 10, fontFamily: 'monospace' }}
@@ -187,59 +322,12 @@ export default function PowerBankChart20Min() {
               })}
               <LabelList dataKey="totalValue" position="top" content={<TotalValueLabel />} />
             </Bar>
+
+            <Customized component={TableOverlay} />
           </BarChart>
         </ResponsiveContainer>
       </div>
 
-      <div className="mt-8 overflow-x-auto relative">
-        <table className="w-full text-left border-collapse min-w-[600px] font-mono text-sm">
-          <colgroup>
-            <col className="w-48 bg-gray-900/50" />
-            {data.map((item, index) => (
-              <col key={index} />
-            ))}
-          </colgroup>
-          <thead>
-            <tr className="border-b-2 border-gray-700">
-              <th className="p-4 text-neon-yellow uppercase tracking-widest text-xs font-bold">Model</th>
-              {data.map((item, index) => (
-                <th key={index} className="p-4 text-center align-top">
-                  <div className="text-white font-bold text-xs">{item.name.replace(/ \(.*?\)/, '')}</div>
-                  <div className="text-gray-600 text-[10px] mt-1 font-normal">{item.subtitle}</div>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b border-gray-800 hover:bg-white/5 transition-colors">
-              <td className="p-4 font-bold text-gray-400 text-xs uppercase">Peak Input</td>
-              {data.map((item, index) => (
-                <td key={index} className="p-4 text-center font-bold text-white">{item.maxW}W</td>
-              ))}
-            </tr>
-            <tr className="border-b-2 border-neon-yellow bg-neon-yellow/10">
-              <td className="p-4 font-bold text-neon-yellow text-xs uppercase">Wh Gained (Max)</td>
-              {data.map((item, index) => (
-                <td key={index} className="p-4 text-center font-bold text-neon-yellow">{item.atMax}Wh</td>
-              ))}
-            </tr>
-            <tr className="border-b border-gray-800 bg-neon-cyan/5">
-              <td className="p-4 font-bold text-neon-cyan text-xs uppercase">Wh Gained (140W)</td>
-              {data.map((item, index) => (
-                <td key={index} className="p-4 text-center font-bold text-neon-cyan">{item.at140W}Wh</td>
-              ))}
-            </tr>
-             <tr className="hover:bg-white/5 transition-colors">
-              <td className="p-4 font-bold text-gray-500 text-xs uppercase">Input Profile</td>
-              {data.map((item, index) => (
-                <td key={index} className="p-4 text-center text-[10px] text-gray-500 leading-tight">
-                   {item.maxProfile}
-                </td>
-              ))}
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </div>
   );
 }

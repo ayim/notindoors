@@ -9,7 +9,7 @@ const truncate = (value, max = 32) => {
   return value.length > max ? `${value.slice(0, max - 1)}…` : value;
 };
 
-const TableOverlay = ({ xAxisMap, height, margin, offset }) => {
+const TableOverlay = ({ xAxisMap, height, margin }) => {
   const xAxisKey = Object.keys(xAxisMap || {})[0];
   const xAxis = xAxisMap?.[xAxisKey];
   const scale = xAxis?.scale;
@@ -17,18 +17,23 @@ const TableOverlay = ({ xAxisMap, height, margin, offset }) => {
   if (!scale || !bandwidth) return null;
 
   const baseY = height - (margin?.bottom ?? 0) + 10;
-  const left = offset?.left ?? 0;
+  const range = scale.range();
+  const rangeStart = Array.isArray(range) ? range[0] : 0;
+  const rangeEnd = Array.isArray(range) ? range[1] : 0;
+  const headerWidth = 120; // fixed width; plot margin accommodates this
   const tableHeight = 125;
   const rows = [0, 24, 48, 72, 96, tableHeight];
+  const rowHeights = rows.slice(1).map((r, i) => rows[i + 1] - rows[i]);
   const rowLabels = ['Model', 'Max In', '@Max', '@140W', 'Sustain / Notes'];
+  const headerX = rangeStart - headerWidth + 4; // nudge left for better justification
 
   return (
     <g>
-      {/* row header column */}
+      {/* row header column (outside bar area but within margin) */}
       <rect
-        x={left - bandwidth}
+        x={headerX}
         y={baseY}
-        width={bandwidth}
+        width={headerWidth}
         height={tableHeight}
         fill="rgba(255,255,255,0.04)"
         stroke="#1f1f1f"
@@ -37,26 +42,32 @@ const TableOverlay = ({ xAxisMap, height, margin, offset }) => {
       {rows.map((r, idx) => (
         <line
           key={`row-header-${idx}`}
-          x1={left - bandwidth}
-          x2={left}
+          x1={headerX}
+          x2={rangeEnd}
           y1={baseY + r}
           y2={baseY + r}
           stroke="#1f1f1f"
           strokeWidth={1}
         />
       ))}
-      <foreignObject x={left - bandwidth} y={baseY} width={bandwidth} height={tableHeight}>
-        <div className="w-full h-full flex flex-col justify-between text-left font-mono text-[10px] leading-tight text-gray-300 px-1 py-1">
-          <div className="text-xs font-bold text-white">{rowLabels[0]}</div>
-          <div>{rowLabels[1]}</div>
-          <div>{rowLabels[2]}</div>
-          <div>{rowLabels[3]}</div>
-          <div className="text-gray-500">{rowLabels[4]}</div>
+      <foreignObject x={headerX} y={baseY} width={headerWidth} height={tableHeight}>
+        <div className="w-full h-full flex flex-col font-mono text-[10px] leading-tight text-gray-300 px-2 py-1">
+          {rowLabels.map((label, i) => (
+            <div
+              key={label}
+              style={{ height: `${rowHeights[i]}px` }}
+              className="flex items-center justify-start"
+            >
+              <span className={i === 0 ? 'text-white text-xs font-bold' : i === 4 ? 'text-gray-500' : ''}>
+                {label}
+              </span>
+            </div>
+          ))}
         </div>
       </foreignObject>
 
       {data.map(item => {
-        const x = left + scale(item.name);
+        const x = scale(item.name);
         return (
           <rect
             key={`${item.name}-bg`}
@@ -73,8 +84,8 @@ const TableOverlay = ({ xAxisMap, height, margin, offset }) => {
       {rows.map((r, idx) => (
         <line
           key={`row-${idx}`}
-          x1={left}
-          x2={left + scale.range()[1]}
+          x1={headerX}
+          x2={rangeEnd}
           y1={baseY + r}
           y2={baseY + r}
           stroke="#1f1f1f"
@@ -83,18 +94,47 @@ const TableOverlay = ({ xAxisMap, height, margin, offset }) => {
       ))}
 
       {data.map(item => {
-        const x = left + scale(item.name);
+        const x = scale(item.name);
         const sustainLabel = item.sustains && item.sustains !== 'Full' ? item.sustains : 'Full';
         return (
           <foreignObject key={item.name} x={x} y={baseY} width={bandwidth} height={tableHeight}>
-            <div className="w-full h-full text-center font-mono text-[10px] leading-tight text-gray-300 px-1 py-1">
-              <div className="text-white font-bold text-xs truncate">{item.name.replace(/ \(.*?\)/, '')}</div>
-              {item.subtitle && <div className="text-gray-500 truncate">{truncate(item.subtitle, 40)}</div>}
-              <div>Max In: <span className="text-neon-magenta font-bold">{item.maxW}W</span></div>
-              <div>@Max: <span className="text-neon-magenta font-bold">{item.atMax}m</span></div>
-              <div>@140W: <span className="text-neon-cyan font-bold">{item.at140W}m</span></div>
-              <div>Sustain: <span className="text-neon-yellow font-bold">{sustainLabel}</span></div>
-              {item.outputThrottling && <div className="text-gray-600 truncate">{truncate(item.outputThrottling, 42)}</div>}
+            <div className="w-full h-full font-mono text-[10px] leading-tight text-gray-300 px-1 py-1">
+              {[
+                <div
+                  key="name"
+                  className="text-white font-bold text-xs truncate text-center"
+                  title={item.subtitle || ''}
+                >
+                  {item.name.replace(/ \(.*?\)/, '')}
+                </div>,
+                <div key="maxW" className="text-neon-magenta font-bold text-center">
+                  {item.maxW}W
+                </div>,
+                <div key="atMax" className="text-neon-magenta font-bold text-center">
+                  {item.atMax}m
+                </div>,
+                <div key="at140" className="text-neon-cyan font-bold text-center">
+                  {item.at140W}m
+                </div>,
+                <div key="sustain" className="text-neon-yellow font-bold text-center">
+                  {sustainLabel}
+                </div>,
+                item.outputThrottling ? (
+                  <div key="note" className="text-gray-600 truncate text-center">
+                    {truncate(item.outputThrottling, 42)}
+                  </div>
+                ) : null,
+              ]
+                .filter(Boolean)
+                .map((node, i) => (
+                  <div
+                    key={i}
+                    style={{ height: `${rowHeights[i] || rowHeights[rowHeights.length - 1]}px` }}
+                    className="flex items-center justify-center"
+                  >
+                    {node}
+                  </div>
+                ))}
             </div>
           </foreignObject>
         );
@@ -195,7 +235,7 @@ export default function PowerBankChart() {
         <ResponsiveContainer width="100%" height={340}>
           <BarChart
             data={data}
-            margin={{ top: 20, right: 0, left: 0, bottom: 160 }}
+            margin={{ top: 20, right: 0, left: 140, bottom: 160 }}
             barCategoryGap="25%"
           >
             <defs>
