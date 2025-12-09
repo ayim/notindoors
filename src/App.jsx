@@ -53,7 +53,7 @@ function HomePage() {
           </div>
           <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-magenta transition-colors">What charges fastest?</h3>
           <p className="text-gray-400 mb-3">Fastest 0-100% recharge time.</p>
-          <p className="text-neon-magenta font-mono text-sm mb-6">🏆 Cuktech 20 Pro · 67 min</p>
+          <p className="text-neon-magenta font-mono text-sm mb-6">🏆 EcoFlow RAPID Pro · 30 min</p>
           <span className="inline-block border border-gray-700 px-4 py-2 text-xs font-mono uppercase text-gray-300 group-hover:border-neon-magenta group-hover:text-neon-magenta transition-colors">
             See all charge times →
           </span>
@@ -65,7 +65,7 @@ function HomePage() {
           </div>
           <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-yellow transition-colors">What if I only have 20 min?</h3>
           <p className="text-gray-400 mb-3">Most charge absorbed in 20 minutes.</p>
-          <p className="text-neon-yellow font-mono text-sm mb-6">🏆 Anker Prime · 38Wh</p>
+          <p className="text-neon-yellow font-mono text-sm mb-6">🏆 EcoFlow RAPID Pro · 79Wh</p>
           <span className="inline-block border border-gray-700 px-4 py-2 text-xs font-mono uppercase text-gray-300 group-hover:border-neon-yellow group-hover:text-neon-yellow transition-colors">
             See burst data →
           </span>
