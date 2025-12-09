@@ -6,7 +6,7 @@ import ProductScores from './ProductScores.jsx';
 const navLinks = [
   { to: '/', label: 'Portable laptop chargers' },
   { to: '/recharge-time', label: 'Laptop chargers' },
-  { to: '/cars', label: 'Cars (coming soon)' },
+  { to: '/cars', label: 'EVs & rental cars (coming soon)' },
 ];
 
 const secondaryLinks = [
