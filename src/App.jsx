@@ -101,7 +101,7 @@ function HomePage() {
   );
 }
 
-export default function App() {
+function AppShell() {
   const location = useLocation();
 
   const isSecondaryActive = (to) => {
@@ -122,65 +122,71 @@ export default function App() {
   );
 
   return (
-    <BrowserRouter>
-      <div className="min-h-screen flex flex-col p-4 md:p-6 lg:p-8 max-w-7xl mx-auto w-full">
-        <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-gray-800 mb-12">
-          <div>
-            <p className="font-mono text-neon-magenta text-xs tracking-[0.2em] uppercase mb-1">r/chargingsheet lab</p>
-            <h2 className="text-2xl font-bold text-white font-display tracking-tight">Portable gear, tested</h2>
-          </div>
-          <nav className="flex flex-wrap gap-3">
-            {navLinks.map(link => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                end={link.to === '/'}
-                className={({ isActive }) => `
-                  px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-all duration-200
-                  ${isActive 
-                    ? 'bg-neon-lime text-black border-neon-lime shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] font-bold' 
-                    : 'text-gray-400 border-gray-800 hover:text-neon-lime hover:border-neon-lime hover:shadow-[2px_2px_0px_0px_#00FF66] bg-black'}
-                `}
-              >
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
-        </header>
-
-        {/* Secondary nav for chart/product views */}
-        <div className="flex flex-wrap gap-3 mb-10">
-          {secondaryLinks.map(link => (
+    <div className="min-h-screen flex flex-col p-4 md:p-6 lg:p-8 max-w-7xl mx-auto w-full">
+      <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-gray-800 mb-12">
+        <div>
+          <p className="font-mono text-neon-magenta text-xs tracking-[0.2em] uppercase mb-1">r/chargingsheet lab</p>
+          <h2 className="text-2xl font-bold text-white font-display tracking-tight">Portable gear, tested</h2>
+        </div>
+        <nav className="flex flex-wrap gap-3">
+          {navLinks.map(link => (
             <NavLink
               key={link.to}
               to={link.to}
-              className={`
+              end={link.to === '/'}
+              className={({ isActive }) => `
                 px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-all duration-200
-                ${isSecondaryActive(link.to)
-                  ? 'bg-neon-lime text-black border-neon-lime shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] font-bold'
+                ${isActive 
+                  ? 'bg-neon-lime text-black border-neon-lime shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] font-bold' 
                   : 'text-gray-400 border-gray-800 hover:text-neon-lime hover:border-neon-lime hover:shadow-[2px_2px_0px_0px_#00FF66] bg-black'}
               `}
             >
               {link.label}
             </NavLink>
           ))}
-        </div>
-        
-        <main className="flex-1 w-full">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/recharge-time" element={<PowerBankChart />} />
-            <Route path="/burst-recharge" element={<PowerBankChart20Min />} />
-            <Route path="/products" element={<ProductScores />} />
-            <Route path="/cars" element={<CarsComingSoon />} />
-            <Route path="*" element={<HomePage />} />
-          </Routes>
-        </main>
-        
-        <footer className="mt-24 py-8 border-t border-gray-800 text-center text-gray-600 text-xs font-mono uppercase tracking-widest">
-          <p>Charts powered by Recharts · Hand-curated Data</p>
-        </footer>
+        </nav>
+      </header>
+
+      {/* Secondary nav for chart/product views */}
+      <div className="flex flex-wrap gap-3 mb-10">
+        {secondaryLinks.map(link => (
+          <NavLink
+            key={link.to}
+            to={link.to}
+            className={`
+              px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-all duration-200
+              ${isSecondaryActive(link.to)
+                ? 'bg-neon-lime text-black border-neon-lime shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] font-bold'
+                : 'text-gray-400 border-gray-800 hover:text-neon-lime hover:border-neon-lime hover:shadow-[2px_2px_0px_0px_#00FF66] bg-black'}
+            `}
+          >
+            {link.label}
+          </NavLink>
+        ))}
       </div>
+      
+      <main className="flex-1 w-full">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/recharge-time" element={<PowerBankChart />} />
+          <Route path="/burst-recharge" element={<PowerBankChart20Min />} />
+          <Route path="/products" element={<ProductScores />} />
+          <Route path="/cars" element={<CarsComingSoon />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+      </main>
+      
+      <footer className="mt-24 py-8 border-t border-gray-800 text-center text-gray-600 text-xs font-mono uppercase tracking-widest">
+        <p>Charts powered by Recharts · Hand-curated Data</p>
+      </footer>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
     </BrowserRouter>
   );
 }
