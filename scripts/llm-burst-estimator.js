@@ -47,8 +47,8 @@ if (!apiKey) {
   process.exit(1);
 }
 
-const MODEL = process.env.OPENROUTER_MODEL || 'grok-code-fast-1'; // default as provided
-const ENDPOINT = 'https://openrouter.ai/api/v1/chat/completions';
+const MODEL = process.env.OPENROUTER_MODEL || 'grok-code-fast-1'; // override via env if needed
+const ENDPOINT = process.env.OPENROUTER_BASE_URL || 'https://openrouter.ai/api/v1/chat/completions';
 
 const promptTemplate = (pack) => {
   const { name, subtitle = '', charging = {} } = pack;
@@ -110,8 +110,14 @@ async function callLLM(prompt) {
   'HTTP-Referer': process.env.OPENROUTER_REFERER || 'http://localhost',
   'X-Title': process.env.OPENROUTER_TITLE || 'llm-burst-estimator',
   };
-  const res = await axios.post(ENDPOINT, body, { headers, timeout: 30000 });
-  const text = res.data?.choices?.[0]?.message?.content?.trim();
+  const res = await axios.post(ENDPOINT, body, { headers, timeout: 60000 }).catch(err => {
+    if (err.response) {
+      const { status, data } = err.response;
+      throw new Error(`LLM request failed: ${status} ${JSON.stringify(data)}`);
+    }
+    throw err;
+  });
+const text = res.data?.choices?.[0]?.message?.content?.trim();
   if (!text) throw new Error('No content from LLM');
   const jsonMatch = text.match(/\{[\s\S]*\}/);
   if (!jsonMatch) throw new Error('No JSON found in LLM response');
