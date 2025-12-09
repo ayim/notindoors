@@ -24,24 +24,22 @@ function HomePage() {
           r/chargingsheet lab
         </div>
         <p className="text-sm text-gray-400 font-mono uppercase tracking-widest mb-3">
-          Last updated · Dec 9 2025
+          176 tested · no sponsored picks · updated Dec 9 2025
         </p>
-        <p className="text-2xl md:text-3xl text-gray-200 font-light leading-tight mb-3">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.05] tracking-tight mb-3">
           Keep your laptop alive anywhere.
+        </h1>
+        <p className="text-lg md:text-xl text-gray-300 font-light leading-tight mb-4 max-w-3xl">
+          Every Amazon listing looks the same. We tested 176 power banks to find what actually works.
         </p>
-        <p className="text-lg md:text-xl text-gray-400 font-light leading-tight mb-4 max-w-3xl">
-          Every Amazon listing looks the same. We tested 176 to find the ones that actually deliver.
-        </p>
-        <p className="text-sm md:text-base text-gray-500 font-mono flex flex-wrap gap-2 mb-6">
-          <span className="px-2 py-1 border border-gray-800 bg-gray-900/60">Feed a hungry ThinkPad</span>
-          <span className="px-2 py-1 border border-gray-800 bg-gray-900/60">MacBook all day</span>
-          <span className="px-2 py-1 border border-gray-800 bg-gray-900/60">20 min before your next call</span>
+        <p className="text-base md:text-lg text-gray-500 font-mono leading-relaxed mb-6 max-w-3xl">
+          Trying to keep a ThinkPad charged, top up a MacBook, or get some charge over a quick lunch?
         </p>
         <div className="flex flex-wrap gap-4">
           <Link to="/products" className="inline-flex items-center justify-center px-8 py-4 bg-neon-yellow text-black font-bold uppercase tracking-wide border-2 border-neon-yellow hover:bg-transparent hover:text-neon-yellow hover:shadow-[4px_4px_0px_0px_#EAFF00] transition-all transform hover:-translate-y-1">
             See Top Picks ⚡
           </Link>
-          <Link to="/recharge-time" className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-bold uppercase tracking-wide border-2 border-white hover:bg-white hover:text-black hover:shadow-[4px_4px_0px_0px_#ffffff] transition-all transform hover:-translate-y-1">
+          <Link to="/leaderboard" className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-bold uppercase tracking-wide border-2 border-white hover:bg-white hover:text-black hover:shadow-[4px_4px_0px_0px_#ffffff] transition-all transform hover:-translate-y-1">
             View All Data →
           </Link>
         </div>
@@ -118,7 +116,6 @@ function AppShell() {
 
   const isSecondaryActive = (to) => {
     const path = location.pathname;
-    if (to === '/recharge-time' && path === '/') return true;
     return path.startsWith(to);
   };
 

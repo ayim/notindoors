@@ -11,6 +11,8 @@ function formatMinutes(value) {
   return `${Math.round(value)} min`;
 }
 
+const formatPrice = (value) => value || '—';
+
 export default function ProductScores() {
   const scoredProducts = [...burstRawList]
     .sort((a, b) => b.atMax - a.atMax)
@@ -49,6 +51,7 @@ export default function ProductScores() {
               <th className="p-4 text-gray-400 uppercase tracking-widest text-xs font-bold font-mono text-center">Pro 50% (20 min)</th>
               <th className="p-4 text-gray-400 uppercase tracking-widest text-xs font-bold font-mono text-center">Full pack &lt;60 min?</th>
               <th className="p-4 text-gray-400 uppercase tracking-widest text-xs font-bold font-mono text-right">Full recharge est.</th>
+              <th className="p-4 text-gray-400 uppercase tracking-widest text-xs font-bold font-mono text-right">Price</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-800">
@@ -90,6 +93,9 @@ export default function ProductScores() {
                 </td>
                 <td className="p-4 text-right font-mono text-white font-bold">
                   {formatMinutes(product.fullRechargeMinutes)}
+                </td>
+                <td className="p-4 text-right font-mono text-gray-300">
+                  {formatPrice(product.price)}
                 </td>
               </tr>
             ))}
