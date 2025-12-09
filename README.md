@@ -1,6 +1,6 @@
 # ChargingSheet Power Bank Lab
 
-A Vite + React dashboard that ranks and visualizes laptop-ready power banks. It includes burst vs sustained recharge charts, leaderboard views, and lab notes styled with neon/tactical UI cues.
+A Vite + React dashboard that ranks and visualizes laptop-ready power banks, wall chargers, rental cars and their USB chrgers, and EVs. It includes burst vs sustained recharge charts, leaderboard views, and lab notes styled with neon/tactical UI cues.
 
 ## Tech stack
 - React 18 with React Router 7 for routing
