@@ -1,6 +1,6 @@
-import powerbanks from './powerbanks.json';
+import packs from './packs';
 
-const combined = powerbanks.map(item => ({
+const combined = packs.map(item => ({
   ...item,
   chargingSheet: item.charging || null,
 }));
