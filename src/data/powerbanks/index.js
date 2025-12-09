@@ -22,5 +22,6 @@ const powerBanks = [
   asperx165W,
 ];
 
+export const burstRaw = powerBanks;
 export default powerBanks;
 

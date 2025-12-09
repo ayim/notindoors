@@ -1,4 +1,4 @@
-import powerBankProducts from './data/powerbanks';
+import { burstRawList } from './data/powerbanks/models';
 
 const MACBOOK_AIR_WH = 66.5;
 const MACBOOK_PRO_50_WH = 50;
@@ -12,7 +12,7 @@ function formatMinutes(value) {
 }
 
 export default function ProductScores() {
-  const scoredProducts = [...powerBankProducts]
+  const scoredProducts = [...burstRawList]
     .sort((a, b) => b.atMax - a.atMax)
     .map(product => {
       const ratePerMinute = product.atMax / REFERENCE_MINUTES;

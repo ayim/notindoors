@@ -1,35 +1,6 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, ReferenceLine, LabelList } from 'recharts';
-import powerBank45MinProducts from './data/powerbanks/45min';
-
-const data = [...powerBank45MinProducts]
-  .sort((a, b) => a.atMax - b.atMax)
-  .map(item => {
-    // If Max is faster than 140W, use Max as base and difference on top
-    // If Max is slower than 140W (like Prime 300W), use 140W as base and difference on top
-    const hideBottomLabel = item.name.includes('Edge X100') || item.name.includes('Anker 737') || item.name.includes('AOHi');
-    const hideBottomBar = item.name.includes('Edge X100') || item.name.includes('Anker 737') || item.name.includes('AOHi');
-    
-    if (item.atMax <= item.at140W) {
-      return {
-        ...item,
-        baseValue: hideBottomBar ? 0 : item.atMax,
-        topValue: hideBottomBar ? item.at140W : item.at140W - item.atMax,
-        totalValue: item.at140W,
-        hideBottomLabel,
-      };
-    }
-
-    // Special case: Max is slower, so reverse the stack
-    return {
-      ...item,
-      baseValue: hideBottomBar ? 0 : item.at140W,
-      topValue: hideBottomBar ? item.atMax : item.atMax - item.at140W,
-      totalValue: item.atMax,
-      reversed: true,
-      hideBottomLabel,
-    };
-  });
+import { rechargeData as data } from './data/powerbanks/models';
 
 const maxStackedValue = Math.max(...data.map(item => item.totalValue));
 

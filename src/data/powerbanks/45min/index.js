@@ -16,5 +16,6 @@ const powerBank45MinProducts = [
   edgeX100,
 ];
 
+export const rechargeRaw = powerBank45MinProducts;
 export default powerBank45MinProducts;
 
