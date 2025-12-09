@@ -2,7 +2,15 @@
   "slug": "poweradd-pro-18-400-mah-130w-66-4wh",
   "name": "POWERADD Pro, 18.400 mAh, 130W - 66,4Wh",
   "subtitle": "18.400 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 16.3,
+    "at140W": 16.3,
+    "maxW": 49,
+    "maxProfile": "61W peak, Drop auf 45W bei 33% (33Wh)",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 65W bei 30% (100W, 38Wh, 23Min)\nJa (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "POWERADD Pro, 18.400 mAh, 130W - 66,4Wh",

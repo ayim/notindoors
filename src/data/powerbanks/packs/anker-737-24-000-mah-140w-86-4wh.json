@@ -2,7 +2,15 @@
   "slug": "anker-737-24-000-mah-140w-86-4wh",
   "name": "Anker, 737, 24.000 mAh, 140W - 86,4Wh (A1289)",
   "subtitle": "24.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 25.0,
+    "at140W": 25.0,
+    "maxW": 75,
+    "maxProfile": "134W peak",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Ja (140W)\nJa (100W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Anker, 737, 24.000 mAh, 140W - 86,4Wh (A1289)",

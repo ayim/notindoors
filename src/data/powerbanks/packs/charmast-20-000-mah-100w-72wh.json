@@ -2,7 +2,15 @@
   "slug": "charmast-20-000-mah-100w-72wh",
   "name": "Charmast, 20.000 mAh, 100W - 72Wh (C100W)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 25.3,
+    "at140W": 25.3,
+    "maxW": 76,
+    "maxProfile": "43W peak",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein (100W)\nNein (65W)\nJa (27W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Charmast, 20.000 mAh, 100W - 72Wh (C100W)",

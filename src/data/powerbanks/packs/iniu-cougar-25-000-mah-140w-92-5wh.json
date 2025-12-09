@@ -2,7 +2,15 @@
   "slug": "iniu-cougar-25-000-mah-140w-92-5wh",
   "name": "INIU, Cougar, 25.000 mAh, 140W, 92,5Wh (P64-E1)",
   "subtitle": "25.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 9.0,
+    "at140W": 9.0,
+    "maxW": 27,
+    "maxProfile": "80W peak",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 100W bei 89% (140W)\nJa (100W)\nJa (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "INIU, Cougar, 25.000 mAh, 140W, 92,5Wh (P64-E1)",

@@ -2,7 +2,15 @@
   "slug": "aohi-210w-10k",
   "name": "AOHi Starship 210W",
   "subtitle": "10.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 33.0,
+    "at140W": 33.0,
+    "maxW": 99,
+    "maxProfile": "90W peak, Drop auf 67W bei 52% (20Wh, 13 Min)",
+    "sustainedW": 140,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 65W + 65W bei 70% (210W, 13Wh, 5 Min)\n(Schaltet sich nach 9 Minuten und bei 50% wegen Hitze ab)\nNein, Drop auf 65W + 45W bei 52% (165W, 18Wh, 8 Min)\n(Schalter sich nach 12 Minuten und bei 27% wegen Hitze ab)\nNein, Drop auf 65W bei 48% (140W, 20Wh, 10 Min)\nNein, Drop auf 65W bei 10% (100W, 30Wh, 18 Min)\nJa (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "AOHi Starship 210W",

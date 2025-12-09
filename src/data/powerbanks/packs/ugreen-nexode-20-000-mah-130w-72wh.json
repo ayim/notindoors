@@ -2,7 +2,15 @@
   "slug": "ugreen-nexode-20-000-mah-130w-72wh",
   "name": "Ugreen, Nexode, 20.000 mAh, 130W - 72Wh (PB721)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 29.0,
+    "at140W": 29.0,
+    "maxW": 87,
+    "maxProfile": "60W peak, Drops auf 30W bei 40% / 70%",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 65W bei 38% (100W)\nNein, Drop auf 60W bei 9% (60W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Ugreen, Nexode, 20.000 mAh, 130W - 72Wh (PB721)",

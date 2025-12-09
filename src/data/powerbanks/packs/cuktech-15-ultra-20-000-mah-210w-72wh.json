@@ -2,7 +2,15 @@
   "slug": "cuktech-15-ultra-20-000-mah-210w-72wh",
   "name": "CUKTECH, 15 Ultra, 20.000 mAh, 210W - 72Wh (PB200U)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 11.0,
+    "at140W": 11.0,
+    "maxW": 33,
+    "maxProfile": "165W peak, Drop to 100W bei 77%",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 100W bei 15% (165W)\nJa (140W)\nJa (100W)\nJa (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "CUKTECH, 15 Ultra, 20.000 mAh, 210W - 72Wh (PB200U)",

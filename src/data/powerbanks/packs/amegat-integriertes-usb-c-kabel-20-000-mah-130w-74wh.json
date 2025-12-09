@@ -2,7 +2,15 @@
   "slug": "amegat-integriertes-usb-c-kabel-20-000-mah-130w-74wh",
   "name": "Amegat, integriertes USB-C-Kabel, 20.000 mAh, 130W, 74Wh (PBC2020)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 16.3,
+    "at140W": 16.3,
+    "maxW": 49,
+    "maxProfile": "62W peak",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 65W bei 41% (100W, 37Wh, 24 Min)\nJa (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Amegat, integriertes USB-C-Kabel, 20.000 mAh, 130W, 74Wh (PBC2020)",

@@ -2,7 +2,15 @@
   "slug": "aohi-starship-27-600-mah-240w-99-3wh",
   "name": "AOHi, Starship, 27.600 mAh, 240W - 99,3Wh (AOC-PO11)",
   "subtitle": "27.600 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 4.3,
+    "at140W": 4.3,
+    "maxW": 13,
+    "maxProfile": "140W peak, Drop auf 100W bei 10%, Drop auf 65W bei",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 100W bei 62% (140W, 28Wh, 12 Min)\nDrop auf 65W bei 49% (140W, 39Wh, 18 Min)\nDrop auf 45W bei 10% (140W, 67Wh, 45 Min)\nNein, Drop auf 65W bei 40% (100W, 45Wh, 28 Min)\nDrop auf 45W bei 10% (100W, 67Wh, 50 Min)"
+  },
   "recharge": null,
   "charging": {
     "label": "AOHi, Starship, 27.600 mAh, 240W - 99,3Wh (AOC-PO11)",

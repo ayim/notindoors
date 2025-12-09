@@ -2,7 +2,15 @@
   "slug": "ugreen-nexode-einziehbares-usb-c-kabel-20-000-mah-165w-72wh",
   "name": "Ugreen, Nexode, einziehbares USB-C-Kabel, 20.000 mAh, 165W - 72Wh (PB726)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 32.7,
+    "at140W": 32.7,
+    "maxW": 98,
+    "maxProfile": "99W peak, Drop auf 38W bei 20% (14 Min, 22Wh),",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 45W+45W bei 57% (165W, 12 Min, 30Wh),\nDrop auf 45W+18W bei 25% (25 Min, 48Wh)\nNein, Drop auf 65W bei 23% (100W, 30 Min, 47Wh)\nJa (65W)\nJa (27W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Ugreen, Nexode, einziehbares USB-C-Kabel, 20.000 mAh, 165W - 72Wh (PB726)",

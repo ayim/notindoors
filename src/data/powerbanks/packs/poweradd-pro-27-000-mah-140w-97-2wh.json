@@ -2,7 +2,15 @@
   "slug": "poweradd-pro-27-000-mah-140w-97-2wh",
   "name": "POWERADD Pro, 27.000 mAh, 140W - 97,2Wh",
   "subtitle": "27.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 20.0,
+    "at140W": 20.0,
+    "maxW": 60,
+    "maxProfile": "140W peak, Drops auf 100W, 65W & 30W",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 100W bei 45% (140W, 50Wh, 22 Min)\nJa (100W)"
+  },
   "recharge": null,
   "charging": {
     "label": "POWERADD Pro, 27.000 mAh, 140W - 97,2Wh",

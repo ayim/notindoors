@@ -2,7 +2,15 @@
   "slug": "baseus-blade-hd-20-000-mah-100w-74wh",
   "name": "Baseus Blade HD, 20.000 mAh, 100W - 74Wh (PPBLD100HD, neu)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 19.3,
+    "at140W": 19.3,
+    "maxW": 58,
+    "maxProfile": "62W peak",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 65W bei 55% (100W, 26Wh, 16 Min)\nJa (60W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Baseus Blade HD, 20.000 mAh, 100W - 74Wh (PPBLD100HD, neu)",

@@ -2,7 +2,15 @@
   "slug": "amegat-flaches-design-20-000-mah-100w-74wh",
   "name": "Amegat, flaches Design, 20.000 mAh, 100W - 74Wh (PBQ2012)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 32.3,
+    "at140W": 32.3,
+    "maxW": 97,
+    "maxProfile": "65W peak",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 45W bei 31% (100W, xxWh, 27 Min)\nNein, Drop auf 45W bei 49% (100W, 35Wh, 21 Min)\nNein, Drop auf 45W bei 44% (100W, 39Wh, 24 Min)\nJa (60W)\nJa (60W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Amegat, flaches Design, 20.000 mAh, 100W - 74Wh (PBQ2012)",

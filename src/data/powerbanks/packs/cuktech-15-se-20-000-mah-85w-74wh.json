@@ -2,7 +2,15 @@
   "slug": "cuktech-15-se-20-000-mah-85w-74wh",
   "name": "CUKTECH, 15 SE, 20.000 mAh, 85W - 74Wh (PB200)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 23.7,
+    "at140W": 23.7,
+    "maxW": 71,
+    "maxProfile": "63W peak, Drop auf 30W bei 65%",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Ja (65W)\nJa (65W + 20W)"
+  },
   "recharge": null,
   "charging": {
     "label": "CUKTECH, 15 SE, 20.000 mAh, 85W - 74Wh (PB200)",

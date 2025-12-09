@@ -2,7 +2,15 @@
   "slug": "veger-integriertes-usb-c-lightning-kabel-25-000-mah-130w-92-5wh",
   "name": "Veger, integriertes USB-C & Lightning.-Kabel, 25.000 mAh, 130W - 92,5Wh",
   "subtitle": "25.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 29.3,
+    "at140W": 29.3,
+    "maxW": 88,
+    "maxProfile": "60W peak",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 65W bei 45% (100W)\nJa (60W)\nNein, Drop auf 65W bei 55% (100W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Veger, integriertes USB-C & Lightning.-Kabel, 25.000 mAh, 130W - 92,5Wh",

@@ -2,7 +2,15 @@
   "slug": "vention-27-000-mah-140w-99-3wh",
   "name": "VENTION, 27.000 mAh, 140W - 99,3Wh (FHVH0)",
   "subtitle": "27.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 18.7,
+    "at140W": 18.7,
+    "maxW": 56,
+    "maxProfile": "137W peak, Drops auf 100 / 65W bei 26 / 51%",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Ja (140W)\nJa (100W)\nJa (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "VENTION, 27.000 mAh, 140W - 99,3Wh (FHVH0)",

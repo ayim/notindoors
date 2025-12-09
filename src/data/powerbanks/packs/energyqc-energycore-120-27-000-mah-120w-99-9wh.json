@@ -2,7 +2,15 @@
   "slug": "energyqc-energycore-120-27-000-mah-120w-99-9wh",
   "name": "EnergyQC, EnergyCore 120, 27.000 mAh, 120W - 99,9Wh",
   "subtitle": "27.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 11.0,
+    "at140W": 11.0,
+    "maxW": 33,
+    "maxProfile": "90W peak, Drop auf 30W bei 80%",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 60W bei 16% (100W)\nJa (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "EnergyQC, EnergyCore 120, 27.000 mAh, 120W - 99,9Wh",

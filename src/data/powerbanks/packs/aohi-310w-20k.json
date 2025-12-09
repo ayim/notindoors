@@ -2,7 +2,15 @@
   "slug": "aohi-310w-20k",
   "name": "AOHi 310W (20k)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 7.0,
+    "at140W": 7.0,
+    "maxW": 21,
+    "maxProfile": "135W peak, Drop auf 90W bei 55% (45Wh, 20 Min)",
+    "sustainedW": 140,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 65W + 65W bei 50% (280W, 17+17Wh, 7 Min)\nNein, Drop auf 65W + 65W bei 5% (200W, 26+25Wh, 16 Min)\nNein, Drop auf 65W bei 1% (140W, 63Wh, 28 Min)\nJa (100W)"
+  },
   "recharge": {
     "at140W": 50,
     "atMax": 50,

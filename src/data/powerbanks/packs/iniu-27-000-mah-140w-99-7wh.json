@@ -2,7 +2,15 @@
   "slug": "iniu-27-000-mah-140w-99-7wh",
   "name": "INIU, 27.000 mAh, 140W, 99,7Wh (BI-B64)",
   "subtitle": "27.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 14.7,
+    "at140W": 14.7,
+    "maxW": 44,
+    "maxProfile": "97W peak",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Ja (140W)\nJa (100W)"
+  },
   "recharge": null,
   "charging": {
     "label": "INIU, 27.000 mAh, 140W, 99,7Wh (BI-B64)",

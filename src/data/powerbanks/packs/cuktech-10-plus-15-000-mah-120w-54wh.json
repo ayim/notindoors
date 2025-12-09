@@ -2,7 +2,15 @@
   "slug": "cuktech-10-plus-15-000-mah-120w-54wh",
   "name": "CUKTECH, 10 Plus, 15.000 mAh, 120W - 54Wh (PB150P)",
   "subtitle": "15.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 11.7,
+    "at140W": 11.7,
+    "maxW": 35,
+    "maxProfile": "95W peak, Drop auf 55W nach 10-12 Min",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Ja (65W + 27W)\nJa (65W)\nJa (45W)\nJa (30W)"
+  },
   "recharge": null,
   "charging": {
     "label": "CUKTECH, 10 Plus, 15.000 mAh, 120W - 54Wh (PB150P)",

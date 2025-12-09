@@ -2,7 +2,15 @@
   "slug": "cuktech-25-25-000-mah-210w-90wh",
   "name": "CUKTECH, 25, 25.000 mAh, 210W - 90Wh (PB250)",
   "subtitle": "25.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 18.3,
+    "at140W": 18.3,
+    "maxW": 55,
+    "maxProfile": "87W peak, Drop auf 60W (42%, 36Wh, 26 Min),",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Ja (100W)\nJa (60W)"
+  },
   "recharge": null,
   "charging": {
     "label": "CUKTECH, 25, 25.000 mAh, 210W - 90Wh (PB250)",

@@ -2,7 +2,15 @@
   "slug": "ecoflow-rapid-pro-einziehbares-usb-c-kabel-27-650-mah-300w-99-54wh",
   "name": "EcoFlow RAPID Pro, einziehbares USB-C-Kabel, 27.650 mAh, 300W - 99,54Wh",
   "subtitle": "27.650 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 16.3,
+    "at140W": 16.3,
+    "maxW": 49,
+    "maxProfile": "316W Peak, Drop auf 240W bei 31% (5 Min, 37°C),",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 100W + 100W bei 67% (280W, 40°C, 7 Min), \nDrop auf 45W + 45W bei 34% (45°C, 15 Min),\n(if Temp under 45°C goes back to 100W + 45W)\nJa (165W)\nNein, Drop auf 100W bei 10% (140W, 39°C, 78Wh, 33 Min)\nJa (100W)\nJa (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "EcoFlow RAPID Pro, einziehbares USB-C-Kabel, 27.650 mAh, 300W - 99,54Wh",

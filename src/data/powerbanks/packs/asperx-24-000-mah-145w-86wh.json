@@ -2,7 +2,15 @@
   "slug": "asperx-24-000-mah-145w-86wh",
   "name": "AsperX, 24.000 mAh, 145W - 86Wh",
   "subtitle": "24.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 12.3,
+    "at140W": 12.3,
+    "maxW": 37,
+    "maxProfile": "96W peak",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 65W bei 26% (100W, 52Wh, 31 Min)\nJa (65W)\n(27W)"
+  },
   "recharge": null,
   "charging": {
     "label": "AsperX, 24.000 mAh, 145W - 86Wh",

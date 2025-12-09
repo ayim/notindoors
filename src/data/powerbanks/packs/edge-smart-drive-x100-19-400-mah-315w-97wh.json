@@ -2,7 +2,15 @@
   "slug": "edge-smart-drive-x100-19-400-mah-315w-97wh",
   "name": "Edge Smart Drive, X100, 19.400 mAh (5V), 315W - 97Wh (X100)",
   "subtitle": "27.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 29.0,
+    "at140W": 29.0,
+    "maxW": 87,
+    "maxProfile": "140W Peak (kann bei 45°C auf 100-120W droppen)",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Jein, siehe Anmerkungen (205W)\nJa (140W)\nJa (100W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Edge Smart Drive, X100, 19.400 mAh (5V), 315W - 97Wh (X100)",

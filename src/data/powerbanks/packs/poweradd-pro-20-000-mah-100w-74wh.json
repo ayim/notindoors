@@ -2,7 +2,15 @@
   "slug": "poweradd-pro-20-000-mah-100w-74wh",
   "name": "POWERADD Pro, 20.000 mAh, 100W - 74Wh",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 26.0,
+    "at140W": 26.0,
+    "maxW": 78,
+    "maxProfile": "60W peak",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Stop bei (100W, 37Wh, 22 Min)\nJa (60W)\nNein, Stop bei (100W, 36Wh, 21 Min)"
+  },
   "recharge": null,
   "charging": {
     "label": "POWERADD Pro, 20.000 mAh, 100W - 74Wh",

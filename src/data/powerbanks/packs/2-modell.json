@@ -2,7 +2,15 @@
   "slug": "2-modell",
   "name": "2. Modell",
   "subtitle": "27.650 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 32.0,
+    "at140W": 32.0,
+    "maxW": 96,
+    "maxProfile": "137W Peak, Drop auf 100W bei 84% (80Wh, 35 Min, 40°C)",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 100W + 100W bei 65% (280W, 40°C, 8 Min), \nDrop auf 45W + 45W bei 34% (45°C, 16 Min),\n(if Temp under 45°C goes back to 100W + 45W)\nJa (165W)\nJa (100W)\nJa (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "2. Modell",

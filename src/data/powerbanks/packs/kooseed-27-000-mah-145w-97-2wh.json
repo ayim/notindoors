@@ -2,7 +2,15 @@
   "slug": "kooseed-27-000-mah-145w-97-2wh",
   "name": "KOOSEED, 27.000 mAh, 145W - 97,2Wh (983SP-145W)",
   "subtitle": "27.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 34.7,
+    "at140W": 34.7,
+    "maxW": 104,
+    "maxProfile": "100W peak, Drop auf 65W bei 50%",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 65W bei 30% (100W)"
+  },
   "recharge": null,
   "charging": {
     "label": "KOOSEED, 27.000 mAh, 145W - 97,2Wh (983SP-145W)",

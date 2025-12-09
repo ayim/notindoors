@@ -2,7 +2,15 @@
   "slug": "sdoutech-20-000-mah-180w-72wh",
   "name": "Sdoutech, 20.000 mAh, 180W - 72Wh (S25Pro)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 4.0,
+    "at140W": 4.0,
+    "maxW": 12,
+    "maxProfile": "100W peak, Drop auf 65W bei 33% (15 Min, 26Wh)",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 30W nach 13 Minuten (100W, 20Wh)\nNein, Drop auf 30W nach 47 Minuten (65W, 47Wh)\nJa (45W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Sdoutech, 20.000 mAh, 180W - 72Wh (S25Pro)",

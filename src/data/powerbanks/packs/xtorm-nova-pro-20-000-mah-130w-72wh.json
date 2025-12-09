@@ -2,7 +2,15 @@
   "slug": "xtorm-nova-pro-20-000-mah-130w-72wh",
   "name": "Xtorm, Nova Pro, 20.000 mAh, 130W - 72Wh",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 22.7,
+    "at140W": 22.7,
+    "maxW": 68,
+    "maxProfile": "61W peak, Drop auf 45W bei 30% (40°C)",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 65W bei 25% (100W)\nJa (60W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Xtorm, Nova Pro, 20.000 mAh, 130W - 72Wh",

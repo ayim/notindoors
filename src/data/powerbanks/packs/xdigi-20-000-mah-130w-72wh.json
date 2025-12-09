@@ -2,7 +2,15 @@
   "slug": "xdigi-20-000-mah-130w-72wh",
   "name": "XDIGI, 20.000 mAh, 130W -  72Wh (PB2100)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 21.0,
+    "at140W": 21.0,
+    "maxW": 63,
+    "maxProfile": "63W peak",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 30W bei 47% (100W, 31,5Wh, 20 Min)\nJa (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "XDIGI, 20.000 mAh, 130W -  72Wh (PB2100)",

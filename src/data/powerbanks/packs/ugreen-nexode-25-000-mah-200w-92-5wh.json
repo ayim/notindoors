@@ -2,7 +2,15 @@
   "slug": "ugreen-nexode-25-000-mah-200w-92-5wh",
   "name": "Ugreen, Nexode, 25.000 mAh, 200W - 92,5Wh (PB722)",
   "subtitle": "25.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 30.3,
+    "at140W": 30.3,
+    "maxW": 91,
+    "maxProfile": "61W peak",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 100W bei 49% (140W)\nNein, Drop auf 60W bei 12% (100W)\nNein, Drop auf 60W bei 9% (60W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Ugreen, Nexode, 25.000 mAh, 200W - 92,5Wh (PB722)",

@@ -2,7 +2,15 @@
   "slug": "vention-integriertes-usb-c-kabel-20-000-mah-165w-74wh",
   "name": "VENTION, integriertes USB-C-Kabel, 20.000 mAh, 165W - 74Wh (FKF)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 27.0,
+    "at140W": 27.0,
+    "maxW": 81,
+    "maxProfile": "63W peak, Drop auf 45W bei 46% (65W, 32 Min, 33Wh)",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 65W bei 35% (100W, 43Wh, 26 Min)\nJa (65W)\nJa (27W)"
+  },
   "recharge": null,
   "charging": {
     "label": "VENTION, integriertes USB-C-Kabel, 20.000 mAh, 165W - 74Wh (FKF)",

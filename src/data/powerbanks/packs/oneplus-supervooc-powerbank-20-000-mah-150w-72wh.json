@@ -2,7 +2,15 @@
   "slug": "oneplus-supervooc-powerbank-20-000-mah-150w-72wh",
   "name": "OnePlus SuperVOOC Powerbank, 20.000 mAh, 150W - 72Wh",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 29.0,
+    "at140W": 29.0,
+    "maxW": 87,
+    "maxProfile": "100W Peak, Drop auf 65W nach einer Minute,",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 60W bei 30% (100W, 40Wh, 25Min)\nJa (60W)"
+  },
   "recharge": null,
   "charging": {
     "label": "OnePlus SuperVOOC Powerbank, 20.000 mAh, 150W - 72Wh",

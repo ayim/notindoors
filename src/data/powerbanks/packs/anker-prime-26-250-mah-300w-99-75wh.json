@@ -2,7 +2,15 @@
   "slug": "anker-prime-26-250-mah-300w-99-75wh",
   "name": "Anker, Prime, 26.250 mAh, 300W - 99,75Wh (A110A) (2025)",
   "subtitle": "26.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 22.7,
+    "at140W": 22.7,
+    "maxW": 68,
+    "maxProfile": "250W peak, Drop auf 160W bei 50% (41°C, 12 Min),",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 100W bei 34% (280W, 57°C, 13 Min), Drop auf\n60W bei 17% (53°C, 23 Min)\nNein, Drop auf 100W bei 30% (240W, 56°C, 17 Min), Drop auf\n60W bei 20% (55°C, 22 Min)\nNein, Drop auf 60W bei 10% (140W, 53°C, 35 Min)\nJa (100W) (48°C)\nJa (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Anker, Prime, 26.250 mAh, 300W - 99,75Wh (A110A) (2025)",

@@ -2,7 +2,15 @@
   "slug": "ugreen-nexode-inkl-qi2-20-000-mah-145w-72wh",
   "name": "Ugreen, Nexode, inkl. Qi2, 20.000 mAh, 145W - 72Wh (PB771)",
   "subtitle": "20.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 29.7,
+    "at140W": 29.7,
+    "maxW": 89,
+    "maxProfile": "63W peak, Drop auf 32W bei 37% (28 Min, 30Wh),",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 45W bei 51% (100W, 17 Min, 28Wh)\nNein, Drop auf 45W bei 10% (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Ugreen, Nexode, inkl. Qi2, 20.000 mAh, 145W - 72Wh (PB771)",

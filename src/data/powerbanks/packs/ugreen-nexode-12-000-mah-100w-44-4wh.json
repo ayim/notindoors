@@ -2,7 +2,15 @@
   "slug": "ugreen-nexode-12-000-mah-100w-44-4wh",
   "name": "Ugreen, Nexode, 12.000 mAh, 100W - 44,4Wh",
   "subtitle": "12.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 31.0,
+    "at140W": 31.0,
+    "maxW": 93,
+    "maxProfile": "60W peak, Drop auf 45W bei 40%",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 45W bei 35% (100W)\nNein, Drop auf 45W bei 10% (60W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Ugreen, Nexode, 12.000 mAh, 100W - 44,4Wh",

@@ -2,7 +2,15 @@
   "slug": "cuktech-15-air-15-000-mah-100w-58-32wh",
   "name": "CUKTECH, 15 Air, 15.000 mAh, 100W - 58,32Wh (PB150S)",
   "subtitle": "15.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 22.3,
+    "at140W": 22.3,
+    "maxW": 67,
+    "maxProfile": "93W peak, Drop auf 62W bei 50% (30Wh, 20 Min)",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 45W bei 66% (65W, 16 Min, 16Wh),\nDrop auf 30W bei 33% (40 Min, 33Wh)\n(45W)\n(45W PPS)\n(27W)"
+  },
   "recharge": null,
   "charging": {
     "label": "CUKTECH, 15 Air, 15.000 mAh, 100W - 58,32Wh (PB150S)",

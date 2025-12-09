@@ -2,7 +2,15 @@
   "slug": "sharge-shargeek-170-24-000-mah-170w-86-4wh",
   "name": "Sharge, Shargeek 170, 24.000 mAh, 170W, 86,4Wh",
   "subtitle": "24.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 15.3,
+    "at140W": 15.3,
+    "maxW": 46,
+    "maxProfile": "135W peak, Drop auf 67W bei 60-70%",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Ja (140W)\nJa (100W)\nJa (60W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Sharge, Shargeek 170, 24.000 mAh, 170W, 86,4Wh",

@@ -2,7 +2,15 @@
   "slug": "anker-prime-20-100-mah-220w-72-36wh",
   "name": "Anker, Prime, 20.100 mAh, 220W - 72,36Wh (A110B) (2025)",
   "subtitle": "20.100 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 14.3,
+    "at140W": 14.3,
+    "maxW": 43,
+    "maxProfile": "95W peak, Drrop auf 65W bei 42% (42°C, 22 Min, 34Wh",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Nein, Drop auf 80W + 80W bei 67% (220W, 44°C, 7 Min), \nDrop auf 20W + 20W bei 50% (50°C, 11 Min), \nhoch auf 80W + 80W bei 38% (48°C, 20 Min) für eine Minute\n(springt hoch / runter, je nach Temperatur - 2x 80W oder 2x 20W)\nNein, Drop auf 65W bei 30% (140W, 54°C, 20 Min)\nNein, Drop auf 65W bei 7% (100W, 54°C, 38 Min)\nJa (65W)"
+  },
   "recharge": null,
   "charging": {
     "label": "Anker, Prime, 20.100 mAh, 220W - 72,36Wh (A110B) (2025)",

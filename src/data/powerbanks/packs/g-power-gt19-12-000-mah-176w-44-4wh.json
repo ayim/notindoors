@@ -2,7 +2,15 @@
   "slug": "g-power-gt19-12-000-mah-176w-44-4wh",
   "name": "G-Power GT19, 12.000 mAh, 176W - 44,4Wh",
   "subtitle": "12.000 mAh",
-  "burst": null,
+  "burst": {
+    "atMax": 32.3,
+    "at140W": 32.3,
+    "maxW": 97,
+    "maxProfile": "130W peak, Drop auf 96W (80%, 35Wh, 16 Min)",
+    "sustainedW": 0,
+    "sustains": "Unknown",
+    "outputThrottling": "Ja (140W)\nJa (100W)\nJa (65W)\nJa (27W)"
+  },
   "recharge": null,
   "charging": {
     "label": "G-Power GT19, 12.000 mAh, 176W - 44,4Wh",
