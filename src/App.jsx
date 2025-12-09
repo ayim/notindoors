@@ -29,12 +29,32 @@ function HomePage() {
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white uppercase leading-[0.9] tracking-tighter mb-4">
           notindoors reviews
         </h1>
-        <p className="text-2xl md:text-3xl text-gray-200 font-light leading-tight mb-8">
-          Portable gear, tested for work and life.
+        <p className="text-2xl md:text-3xl text-gray-200 font-light leading-tight mb-3">
+          Keep your laptop alive anywhere.
         </p>
-        <p className="text-lg md:text-xl text-gray-400 font-light leading-tight mb-8 max-w-3xl">
-          What&apos;s the best power bank? Depends what you need. We tested 47 to find out.
+        <p className="text-lg md:text-xl text-gray-400 font-light leading-tight mb-6 max-w-3xl">
+          176 power banks tested. Real data, no spec sheet BS.
         </p>
+        <form className="w-full max-w-2xl mb-6 flex flex-col gap-3">
+          <div className="flex flex-col md:flex-row gap-3">
+            <input
+              type="text"
+              placeholder="What do you need to keep running?"
+              className="flex-1 px-4 py-3 bg-gray-900 border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-neon-cyan font-mono text-sm uppercase tracking-tight"
+            />
+            <button
+              type="button"
+              className="px-6 py-3 bg-neon-cyan text-black font-bold uppercase tracking-wide border-2 border-neon-cyan hover:bg-transparent hover:text-neon-cyan hover:shadow-[4px_4px_0px_0px_#00FFFF] transition-all"
+            >
+              🔍
+            </button>
+          </div>
+          <div className="text-gray-500 text-sm font-mono flex flex-wrap gap-2">
+            <span className="px-2 py-1 border border-gray-800 bg-gray-900/60">Feed a hungry ThinkPad</span>
+            <span className="px-2 py-1 border border-gray-800 bg-gray-900/60">MacBook all day</span>
+            <span className="px-2 py-1 border border-gray-800 bg-gray-900/60">20 min before your next call</span>
+          </div>
+        </form>
         <div className="flex flex-wrap gap-4">
           <Link to="/products" className="inline-flex items-center justify-center px-8 py-4 bg-neon-yellow text-black font-bold uppercase tracking-wide border-2 border-neon-yellow hover:bg-transparent hover:text-neon-yellow hover:shadow-[4px_4px_0px_0px_#EAFF00] transition-all transform hover:-translate-y-1">
             See Top Picks ⚡
@@ -149,7 +169,7 @@ function AppShell() {
       <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-gray-800 mb-12">
         <div>
           <p className="font-mono text-neon-magenta text-xs tracking-[0.2em] uppercase mb-1">notindoors reviews</p>
-          <h2 className="text-2xl font-bold text-white font-display tracking-tight">Portable gear, tested</h2>
+          <h2 className="text-2xl font-bold text-white font-display tracking-tight">Portable gear, tested for work and life.</h2>
         </div>
         <nav className="flex flex-wrap gap-3">
           {navLinks.map(link => {
