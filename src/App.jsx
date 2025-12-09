@@ -26,9 +26,6 @@ function HomePage() {
         <p className="text-sm text-gray-400 font-mono uppercase tracking-widest mb-3">
           Last updated · Dec 9 2025
         </p>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white uppercase leading-[0.9] tracking-tighter mb-4">
-          notindoors reviews
-        </h1>
         <p className="text-2xl md:text-3xl text-gray-200 font-light leading-tight mb-3">
           Keep your laptop alive anywhere.
         </p>
