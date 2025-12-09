@@ -148,7 +148,7 @@ function AppShell() {
     <div className="min-h-screen flex flex-col p-4 md:p-6 lg:p-8 max-w-7xl mx-auto w-full">
       <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-gray-800 mb-12">
         <div>
-          <p className="font-mono text-neon-magenta text-xs tracking-[0.2em] uppercase mb-1">r/chargingsheet lab</p>
+          <p className="font-mono text-neon-magenta text-xs tracking-[0.2em] uppercase mb-1">notindoors reviews</p>
           <h2 className="text-2xl font-bold text-white font-display tracking-tight">Portable gear, tested</h2>
         </div>
         <nav className="flex flex-wrap gap-3">
