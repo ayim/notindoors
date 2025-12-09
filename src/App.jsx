@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, NavLink, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, NavLink, Link, useLocation } from 'react-router-dom';
 import PowerBankChart from './PowerBankChart.jsx';
 import PowerBankChart20Min from './PowerBankChart20Min.jsx';
 import ProductScores from './ProductScores.jsx';
@@ -7,6 +7,12 @@ const navLinks = [
   { to: '/', label: 'Portable laptop chargers' },
   { to: '/recharge-time', label: 'Laptop chargers' },
   { to: '/cars', label: 'Cars (coming soon)' },
+];
+
+const secondaryLinks = [
+  { to: '/recharge-time', label: 'Recharge Time' },
+  { to: '/burst-recharge', label: 'Burst Recharge' },
+  { to: '/products', label: 'Products' },
 ];
 
 function HomePage() {
@@ -36,34 +42,6 @@ function HomePage() {
           </Link>
           <Link to="/recharge-time" className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-bold uppercase tracking-wide border-2 border-white hover:bg-white hover:text-black hover:shadow-[4px_4px_0px_0px_#ffffff] transition-all transform hover:-translate-y-1">
             See Lab Tests →
-          </Link>
-        </div>
-      </section>
-
-      {/* Value Props Strip */}
-      <section className="grid md:grid-cols-3 gap-6 border-y border-gray-800 py-12">
-        <div className="group">
-          <span className="block text-neon-lime font-mono text-xs mb-2">01 / BURST</span>
-          <div className="text-2xl font-bold text-white mb-2 group-hover:text-neon-lime transition-colors">Burst Wattage</div>
-          <p className="text-gray-500 mb-4">20-minute max-energy delivery tests.</p>
-          <Link to="/burst-recharge" className="text-sm font-mono uppercase border-b border-transparent group-hover:border-neon-lime group-hover:text-neon-lime transition-all">
-            View Data →
-          </Link>
-        </div>
-        <div className="group">
-          <span className="block text-neon-magenta font-mono text-xs mb-2">02 / SUSTAIN</span>
-          <div className="text-2xl font-bold text-white mb-2 group-hover:text-neon-magenta transition-colors">Sustained Power</div>
-          <p className="text-gray-500 mb-4">How long packs hold MacBook-ready wattage.</p>
-          <Link to="/recharge-time" className="text-sm font-mono uppercase border-b border-transparent group-hover:border-neon-magenta group-hover:text-neon-magenta transition-all">
-            View Data →
-          </Link>
-        </div>
-        <div className="group">
-          <span className="block text-neon-cyan font-mono text-xs mb-2">03 / SCORE</span>
-          <div className="text-2xl font-bold text-white mb-2 group-hover:text-neon-cyan transition-colors">Scoreboard</div>
-          <p className="text-gray-500 mb-4">Clear rankings for travel workflows.</p>
-          <Link to="/products" className="text-sm font-mono uppercase border-b border-transparent group-hover:border-neon-cyan group-hover:text-neon-cyan transition-all">
-            View Data →
           </Link>
         </div>
       </section>
@@ -130,6 +108,13 @@ function HomePage() {
 }
 
 export default function App() {
+  const location = useLocation();
+
+  const isSecondaryActive = (to) => {
+    if (to === '/recharge-time' && location.pathname === '/') return true;
+    return location.pathname.startsWith(to);
+  };
+
   const CarsComingSoon = () => (
     <div className="page-shell">
       <div className="hero">
@@ -168,6 +153,24 @@ export default function App() {
             ))}
           </nav>
         </header>
+
+        {/* Secondary nav for chart/product views */}
+        <div className="flex flex-wrap gap-3 mb-10">
+          {secondaryLinks.map(link => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={`
+                px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-all duration-200
+                ${isSecondaryActive(link.to)
+                  ? 'bg-neon-lime text-black border-neon-lime shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] font-bold'
+                  : 'text-gray-400 border-gray-800 hover:text-neon-lime hover:border-neon-lime hover:shadow-[2px_2px_0px_0px_#00FF66] bg-black'}
+              `}
+            >
+              {link.label}
+            </NavLink>
+          ))}
+        </div>
         
         <main className="flex-1 w-full">
           <Routes>
