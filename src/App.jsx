@@ -16,11 +16,11 @@ function HomePage() {
       {/* Hero Section */}
       <section className="pt-12 md:pt-20">
         <div className="inline-block px-3 py-1 mb-4 border border-neon-cyan text-neon-cyan font-mono text-xs uppercase tracking-widest">
-          Power Bank Lab
+          Notindoors Lab
         </div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white uppercase leading-[0.9] tracking-tighter mb-8">
-          Power Banks<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-lime">Ranked & Tested</span>
+          notindoors<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-lime">Power Banks Ranked</span>
         </h1>
         <p className="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed mb-10 border-l-4 border-neon-magenta pl-6">
           We test burst energy, sustained recharge, and real MacBook-ready performance so you know which packs actually do the job.
@@ -127,7 +127,7 @@ export default function App() {
       <div className="min-h-screen flex flex-col p-4 md:p-6 lg:p-8 max-w-7xl mx-auto w-full">
         <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-gray-800 mb-12">
           <div>
-            <p className="font-mono text-neon-magenta text-xs tracking-[0.2em] uppercase mb-1">Testgraph</p>
+            <p className="font-mono text-neon-magenta text-xs tracking-[0.2em] uppercase mb-1">notindoors</p>
             <h2 className="text-2xl font-bold text-white font-display tracking-tight">Power Bank Insights</h2>
           </div>
           <nav className="flex flex-wrap gap-3">
