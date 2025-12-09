@@ -4,10 +4,9 @@ import PowerBankChart20Min from './PowerBankChart20Min.jsx';
 import ProductScores from './ProductScores.jsx';
 
 const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/recharge-time', label: 'Recharge Time' },
-  { to: '/burst-recharge', label: 'Burst Recharge' },
-  { to: '/products', label: 'Products' },
+  { to: '/', label: 'Portable laptop chargers' },
+  { to: '/recharge-time', label: 'Laptop chargers' },
+  { to: '/cars', label: 'Cars (coming soon)' },
 ];
 
 function HomePage() {
@@ -131,6 +130,18 @@ function HomePage() {
 }
 
 export default function App() {
+  const CarsComingSoon = () => (
+    <div className="page-shell">
+      <div className="hero">
+        <p className="eyebrow">r/chargingsheet lab</p>
+        <h1>Cars testing is coming soon</h1>
+        <p className="lead">
+          We’re lining up EV charging and vehicle power accessory tests. Subscribe or check back for the next drop.
+        </p>
+      </div>
+    </div>
+  );
+
   return (
     <BrowserRouter>
       <div className="min-h-screen flex flex-col p-4 md:p-6 lg:p-8 max-w-7xl mx-auto w-full">
@@ -164,6 +175,7 @@ export default function App() {
             <Route path="/recharge-time" element={<PowerBankChart />} />
             <Route path="/burst-recharge" element={<PowerBankChart20Min />} />
             <Route path="/products" element={<ProductScores />} />
+            <Route path="/cars" element={<CarsComingSoon />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
         </main>
