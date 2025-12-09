@@ -23,6 +23,9 @@ function HomePage() {
         <div className="inline-block px-3 py-1 mb-4 border border-neon-cyan text-neon-cyan font-mono text-xs uppercase tracking-widest">
           r/chargingsheet lab
         </div>
+        <p className="text-sm text-gray-400 font-mono uppercase tracking-widest mb-3">
+          Last updated · Dec 9 2025
+        </p>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white uppercase leading-[0.9] tracking-tighter mb-8">
           r/chargingsheet<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-lime">Power banks ranked</span>
