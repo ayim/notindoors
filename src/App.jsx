@@ -16,14 +16,20 @@ function HomePage() {
       {/* Hero Section */}
       <section className="pt-12 md:pt-20">
         <div className="inline-block px-3 py-1 mb-4 border border-neon-cyan text-neon-cyan font-mono text-xs uppercase tracking-widest">
-          Notindoors Lab
+          r/chargingsheet lab
         </div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white uppercase leading-[0.9] tracking-tighter mb-8">
-          notindoors<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-lime">Power Banks Ranked</span>
+          r/chargingsheet<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-lime">Power banks ranked</span>
         </h1>
-        <p className="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed mb-10 border-l-4 border-neon-magenta pl-6">
-          We test burst energy, sustained recharge, and real MacBook-ready performance so you know which packs actually do the job.
+        <p className="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed mb-4 border-l-4 border-neon-magenta pl-6">
+          Ever wonder why your power bank died faster than expected, couldn't keep up with your MacBook, or got hot and stopped charging mid-flight?
+        </p>
+        <p className="text-lg md:text-xl text-gray-400 max-w-3xl font-light leading-relaxed mb-4">
+          The spec sheet said 20,000mAh and 65W — so what happened? We test what the box won't tell you: usable capacity, sustained wattage under load, how output splits across multiple ports, and whether passthrough and UPS modes actually work. Plus the practical stuff — weight, size, and whether it fits in your bag.
+        </p>
+        <p className="text-lg md:text-xl text-gray-400 max-w-3xl font-light leading-relaxed mb-10">
+          Raw testing data comes from u/N8falke and the Charging Sheet. We build on that foundation with field testing for mobile and outdoor use.
         </p>
         <div className="flex flex-wrap gap-4">
           <Link to="/products" className="inline-flex items-center justify-center px-8 py-4 bg-neon-yellow text-black font-bold uppercase tracking-wide border-2 border-neon-yellow hover:bg-transparent hover:text-neon-yellow hover:shadow-[4px_4px_0px_0px_#EAFF00] transition-all transform hover:-translate-y-1">
@@ -105,7 +111,10 @@ function HomePage() {
         <div className="flex flex-col md:flex-row gap-12 items-start">
           <div className="md:w-1/3">
              <h2 className="text-4xl font-display font-bold text-white mb-4">How We Test</h2>
-             <p className="text-gray-400">Real workflows. Real charts. No marketing claims.</p>
+             <p className="text-gray-400 mb-4">Real workflows. Real charts. No marketing claims.</p>
+             <p className="text-gray-400 text-sm leading-relaxed">
+               We measure usable capacity, watch how wattage holds under load, map split behavior across ports, and validate passthrough/UPS claims. Then we layer in weight, size, and packability so the data matches travel reality. Data foundations come from u/N8falke and the Charging Sheet; we extend with field tests for travel and outdoor use.
+             </p>
           </div>
           <div className="md:w-2/3 grid grid-cols-2 gap-4">
              {['20-minute burst test', 'Sustained MacBook draw', '45-minute recharge mapping', 'Sub-60-minute recovery scoring'].map((item, i) => (
@@ -127,7 +136,7 @@ export default function App() {
       <div className="min-h-screen flex flex-col p-4 md:p-6 lg:p-8 max-w-7xl mx-auto w-full">
         <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-gray-800 mb-12">
           <div>
-            <p className="font-mono text-neon-magenta text-xs tracking-[0.2em] uppercase mb-1">notindoors</p>
+            <p className="font-mono text-neon-magenta text-xs tracking-[0.2em] uppercase mb-1">r/chargingsheet lab</p>
             <h2 className="text-2xl font-bold text-white font-display tracking-tight">Portable gear, tested</h2>
           </div>
           <nav className="flex flex-wrap gap-3">
