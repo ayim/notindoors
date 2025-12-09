@@ -46,8 +46,8 @@ function HomePage() {
           <div className="absolute top-0 right-0 bg-neon-magenta text-black text-xs font-bold px-2 py-1 font-mono transform translate-x-full group-hover:translate-x-0 transition-transform">
             V3 DATA
           </div>
-          <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-magenta transition-colors">Recharge Time</h3>
-          <p className="text-gray-400 mb-6">How fast each pack refuels using Apple-grade chargers.</p>
+          <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-magenta transition-colors">Recharge to 100%</h3>
+          <p className="text-gray-400 mb-6">How fast each pack refuels to full using Apple-grade chargers.</p>
           <span className="inline-block border border-gray-700 px-4 py-2 text-xs font-mono uppercase text-gray-300 group-hover:border-neon-magenta group-hover:text-neon-magenta transition-colors">
             Enter Lab →
           </span>
@@ -57,8 +57,8 @@ function HomePage() {
           <div className="absolute top-0 right-0 bg-neon-yellow text-black text-xs font-bold px-2 py-1 font-mono transform translate-x-full group-hover:translate-x-0 transition-transform">
             NEW
           </div>
-          <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-yellow transition-colors">Burst Energy</h3>
-          <p className="text-gray-400 mb-6">Which packs dump the most watts in the first 20 minutes.</p>
+          <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-yellow transition-colors">Burst recharge</h3>
+          <p className="text-gray-400 mb-6">How much energy a pack can absorb in the first 20 minutes.</p>
           <span className="inline-block border border-gray-700 px-4 py-2 text-xs font-mono uppercase text-gray-300 group-hover:border-neon-yellow group-hover:text-neon-yellow transition-colors">
             Enter Lab →
           </span>
