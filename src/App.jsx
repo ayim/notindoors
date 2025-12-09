@@ -5,14 +5,14 @@ import ProductScores from './ProductScores.jsx';
 
 const navLinks = [
   { to: '/', label: 'Laptop power bank' },
-  { to: '/laptop-chargers', label: 'Laptop wall chargers', tooltip: 'Coming soon', disabled: true },
-  { to: '/cars', label: 'EVs & rental cars', tooltip: 'Coming soon', disabled: true  },
+  { to: '/', label: 'Laptop wall chargers', tooltip: 'Coming soon', disabled: true },
+  { to: '/', label: 'EVs & rental cars', tooltip: 'Coming soon', disabled: true  },
 ];
 
 const secondaryLinks = [
   { to: '/burst-recharge', label: 'Burst charge' },
-  { to: '/recharge-time', label: 'Recharge time' },
   { to: '/leaderboard', label: 'Leaderboard' },
+  { to: '/recharge-time', label: 'Recharge time' },
 ];
 
 function HomePage() {
