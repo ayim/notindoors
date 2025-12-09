@@ -27,15 +27,6 @@ function HomePage() {
           r/chargingsheet<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-lime">Power banks ranked</span>
         </h1>
-        <p className="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed mb-4 border-l-4 border-neon-magenta pl-6">
-          Ever wonder why your power bank died faster than expected, couldn't keep up with your MacBook, or got hot and stopped charging mid-flight?
-        </p>
-        <p className="text-lg md:text-xl text-gray-400 max-w-3xl font-light leading-relaxed mb-4">
-          The spec sheet said 20,000mAh and 65W — so what happened? We test what the box won't tell you: usable capacity, sustained wattage under load, how output splits across multiple ports, and whether passthrough and UPS modes actually work. Plus the practical stuff — weight, size, and whether it fits in your bag.
-        </p>
-        <p className="text-lg md:text-xl text-gray-400 max-w-3xl font-light leading-relaxed mb-10">
-          Raw testing data comes from u/N8falke and the Charging Sheet. We build on that foundation with field testing for mobile and outdoor use.
-        </p>
         <div className="flex flex-wrap gap-4">
           <Link to="/products" className="inline-flex items-center justify-center px-8 py-4 bg-neon-yellow text-black font-bold uppercase tracking-wide border-2 border-neon-yellow hover:bg-transparent hover:text-neon-yellow hover:shadow-[4px_4px_0px_0px_#EAFF00] transition-all transform hover:-translate-y-1">
             View Scoreboard ⚡
