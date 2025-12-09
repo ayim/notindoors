@@ -5,7 +5,7 @@ import ProductScores from './ProductScores.jsx';
 
 const navLinks = [
   { to: '/', label: 'Laptop power bank' },
-  { to: '/laptop-chargers', label: 'Laptop chargers (coming soon)' },
+  { to: '/laptop-chargers', label: 'Laptop wall chargers (TBD)' },
   { to: '/cars', label: 'EVs & rental cars (coming soon)' },
 ];
 
@@ -141,9 +141,9 @@ function AppShell() {
     <div className="page-shell">
       <div className="hero">
         <p className="eyebrow">r/chargingsheet lab</p>
-        <h1>Laptop chargers coming soon</h1>
+        <h1>Laptop wall chargers · TBD</h1>
         <p className="lead">
-          We’re adding mains-powered laptop charger testing next. Expect sustained load, thermal and travel-readiness checks.
+          This section is parked. We’ll add mains-powered laptop charger testing (sustained load, thermals, travel-readiness) once the backlog clears.
         </p>
       </div>
     </div>
