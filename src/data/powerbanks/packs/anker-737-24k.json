@@ -1,0 +1,24 @@
+{
+  "slug": "anker-737-24k",
+  "name": "Anker 737 (24k)",
+  "subtitle": "86Wh",
+  "burst": {
+    "at140W": 45,
+    "atMax": 45,
+    "maxW": 134,
+    "maxProfile": "134W sustained",
+    "sustainedW": 134,
+    "sustains": "Full",
+    "outputThrottling": "-"
+  },
+  "recharge": {
+    "at140W": 46,
+    "atMax": 46,
+    "maxW": 140,
+    "sustainedW": 140,
+    "sustains": "Full",
+    "outputThrottling": "-"
+  },
+  "charging": null,
+  "price": ""
+}

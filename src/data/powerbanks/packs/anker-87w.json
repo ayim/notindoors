@@ -1,0 +1,17 @@
+{
+  "slug": "anker-87w",
+  "name": "Anker 87W",
+  "subtitle": "",
+  "burst": {
+    "at140W": 22,
+    "atMax": 22,
+    "maxW": 65,
+    "maxProfile": "65W sustained",
+    "sustainedW": 65,
+    "sustains": "Full",
+    "outputThrottling": ""
+  },
+  "recharge": null,
+  "charging": null,
+  "price": ""
+}

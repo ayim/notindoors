@@ -1,0 +1,17 @@
+{
+  "slug": "anker-165w",
+  "name": "Anker 165W",
+  "subtitle": "",
+  "burst": {
+    "at140W": 31,
+    "atMax": 31,
+    "maxW": 94,
+    "maxProfile": "94W (23min)",
+    "sustainedW": 94,
+    "sustains": "Full",
+    "outputThrottling": ""
+  },
+  "recharge": null,
+  "charging": null,
+  "price": ""
+}
