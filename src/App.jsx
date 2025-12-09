@@ -4,15 +4,15 @@ import PowerBankChart20Min from './PowerBankChart20Min.jsx';
 import ProductScores from './ProductScores.jsx';
 
 const navLinks = [
-  { to: '/', label: 'Portable laptop chargers' },
-  { to: '/recharge-time', label: 'Laptop chargers' },
+  { to: '/', label: 'Laptop power bank' },
+  { to: '/laptop-chargers', label: 'Laptop chargers (coming soon)' },
   { to: '/cars', label: 'EVs & rental cars (coming soon)' },
 ];
 
 const secondaryLinks = [
-  { to: '/recharge-time', label: 'Recharge Time' },
-  { to: '/burst-recharge', label: 'Burst Recharge' },
-  { to: '/products', label: 'Products' },
+  { to: '/burst-recharge', label: 'Burst charge' },
+  { to: '/recharge-time', label: 'Recharge time' },
+  { to: '/leaderboard', label: 'Leaderboard' },
 ];
 
 function HomePage() {
@@ -104,9 +104,25 @@ function HomePage() {
 function AppShell() {
   const location = useLocation();
 
+  const isPrimaryActive = (to) => {
+    const path = location.pathname;
+    const laptopPowerBankPaths = ['/', '/burst-recharge', '/recharge-time', '/leaderboard', '/products'];
+    if (to === '/') {
+      return laptopPowerBankPaths.some(p => path === p || path.startsWith(p));
+    }
+    if (to === '/laptop-chargers') {
+      return path.startsWith('/laptop-chargers');
+    }
+    if (to === '/cars') {
+      return path.startsWith('/cars');
+    }
+    return false;
+  };
+
   const isSecondaryActive = (to) => {
-    if (to === '/recharge-time' && location.pathname === '/') return true;
-    return location.pathname.startsWith(to);
+    const path = location.pathname;
+    if (to === '/recharge-time' && path === '/') return true;
+    return path.startsWith(to);
   };
 
   const CarsComingSoon = () => (
@@ -121,6 +137,18 @@ function AppShell() {
     </div>
   );
 
+  const LaptopChargersComingSoon = () => (
+    <div className="page-shell">
+      <div className="hero">
+        <p className="eyebrow">r/chargingsheet lab</p>
+        <h1>Laptop chargers coming soon</h1>
+        <p className="lead">
+          We’re adding mains-powered laptop charger testing next. Expect sustained load, thermal and travel-readiness checks.
+        </p>
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen flex flex-col p-4 md:p-6 lg:p-8 max-w-7xl mx-auto w-full">
       <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-gray-800 mb-12">
@@ -128,23 +156,26 @@ function AppShell() {
           <p className="font-mono text-neon-magenta text-xs tracking-[0.2em] uppercase mb-1">r/chargingsheet lab</p>
           <h2 className="text-2xl font-bold text-white font-display tracking-tight">Portable gear, tested</h2>
         </div>
-        <nav className="flex flex-wrap gap-3">
-          {navLinks.map(link => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.to === '/'}
-              className={({ isActive }) => `
-                px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-all duration-200
-                ${isActive 
-                  ? 'bg-neon-lime text-black border-neon-lime shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] font-bold' 
-                  : 'text-gray-400 border-gray-800 hover:text-neon-lime hover:border-neon-lime hover:shadow-[2px_2px_0px_0px_#00FF66] bg-black'}
-              `}
-            >
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
+          <nav className="flex flex-wrap gap-3">
+            {navLinks.map(link => {
+              const active = isPrimaryActive(link.to);
+              return (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  end={link.to === '/'}
+                  className={`
+                    px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-all duration-200
+                    ${active 
+                      ? 'bg-neon-lime text-black border-neon-lime shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] font-bold' 
+                      : 'text-gray-400 border-gray-800 hover:text-neon-lime hover:border-neon-lime hover:shadow-[2px_2px_0px_0px_#00FF66] bg-black'}
+                  `}
+                >
+                  {link.label}
+                </NavLink>
+              );
+            })}
+          </nav>
       </header>
 
       {/* Secondary nav for chart/product views */}
@@ -168,9 +199,11 @@ function AppShell() {
       <main className="flex-1 w-full">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/leaderboard" element={<ProductScores />} />
+          <Route path="/products" element={<ProductScores />} />
           <Route path="/recharge-time" element={<PowerBankChart />} />
           <Route path="/burst-recharge" element={<PowerBankChart20Min />} />
-          <Route path="/products" element={<ProductScores />} />
+          <Route path="/laptop-chargers" element={<LaptopChargersComingSoon />} />
           <Route path="/cars" element={<CarsComingSoon />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
