@@ -26,10 +26,12 @@ function HomePage() {
         <p className="text-sm text-gray-400 font-mono uppercase tracking-widest mb-3">
           Last updated · Dec 9 2025
         </p>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white uppercase leading-[0.9] tracking-tighter mb-8">
-          r/chargingsheet<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-lime">Power banks ranked</span>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white uppercase leading-[0.9] tracking-tighter mb-4">
+          notindoors reviews
         </h1>
+        <p className="text-2xl md:text-3xl text-gray-200 font-light leading-tight mb-8">
+          Portable gear, tested for work and life.
+        </p>
         <div className="flex flex-wrap gap-4">
           <Link to="/products" className="inline-flex items-center justify-center px-8 py-4 bg-neon-yellow text-black font-bold uppercase tracking-wide border-2 border-neon-yellow hover:bg-transparent hover:text-neon-yellow hover:shadow-[4px_4px_0px_0px_#EAFF00] transition-all transform hover:-translate-y-1">
             View Scoreboard ⚡
