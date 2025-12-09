@@ -47,7 +47,7 @@ if (!apiKey) {
   process.exit(1);
 }
 
-const MODEL = 'grok-code-fast-1'; // Provided model
+const MODEL = process.env.OPENROUTER_MODEL || 'grok-code-fast-1'; // default as provided
 const ENDPOINT = 'https://openrouter.ai/api/v1/chat/completions';
 
 const promptTemplate = (pack) => {
@@ -105,7 +105,10 @@ async function callLLM(prompt) {
   };
   const headers = {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${apiKey}`,
+  'Authorization': `Bearer ${apiKey}`,
+  // OpenRouter recommends sending a referer/title for rate/fair-use; optional but nice.
+  'HTTP-Referer': process.env.OPENROUTER_REFERER || 'http://localhost',
+  'X-Title': process.env.OPENROUTER_TITLE || 'llm-burst-estimator',
   };
   const res = await axios.post(ENDPOINT, body, { headers, timeout: 30000 });
   const text = res.data?.choices?.[0]?.message?.content?.trim();
