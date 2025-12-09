@@ -1,0 +1,12 @@
+{
+  "name": "CUKTECH 15 Ultra (20k)",
+  "subtitle": "72Wh",
+  "at140W": 45,
+  "atMax": 43,
+  "maxW": 165,
+  "maxProfile": "165W (9min)→100W",
+  "sustainedW": 135,
+  "sustains": "9 min",
+  "outputThrottling": "100W at 15%"
+}
+

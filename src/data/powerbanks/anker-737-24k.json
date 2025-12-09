@@ -1,0 +1,12 @@
+{
+  "name": "Anker 737 (24k)",
+  "subtitle": "86Wh",
+  "at140W": 45,
+  "atMax": 45,
+  "maxW": 134,
+  "maxProfile": "134W sustained",
+  "sustainedW": 134,
+  "sustains": "Full",
+  "outputThrottling": "-"
+}
+

@@ -1,0 +1,12 @@
+{
+  "name": "EcoFlow RAPID Pro (27.6k)",
+  "subtitle": "100Wh",
+  "at140W": 47,
+  "atMax": 79,
+  "maxW": 316,
+  "maxProfile": "316W → 240W → 150W",
+  "sustainedW": 140,
+  "sustains": "Full",
+  "outputThrottling": "Dual: 100W×2 at 67%, 45W×2 at 34% | Single: 100W at 10%"
+}
+

@@ -1,0 +1,261 @@
+import React from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, ReferenceLine, LabelList } from 'recharts';
+import powerBank45MinProducts from './data/powerbanks/45min';
+
+const data = [...powerBank45MinProducts]
+  .sort((a, b) => a.atMax - b.atMax)
+  .map(item => {
+    // If Max is faster than 140W, use Max as base and difference on top
+    // If Max is slower than 140W (like Prime 300W), use 140W as base and difference on top
+    const hideBottomLabel = item.name.includes('Edge X100') || item.name.includes('Anker 737') || item.name.includes('AOHi');
+    const hideBottomBar = item.name.includes('Edge X100') || item.name.includes('Anker 737') || item.name.includes('AOHi');
+    
+    if (item.atMax <= item.at140W) {
+      return {
+        ...item,
+        baseValue: hideBottomBar ? 0 : item.atMax,
+        topValue: hideBottomBar ? item.at140W : item.at140W - item.atMax,
+        totalValue: item.at140W,
+        hideBottomLabel,
+      };
+    }
+
+    // Special case: Max is slower, so reverse the stack
+    return {
+      ...item,
+      baseValue: hideBottomBar ? 0 : item.at140W,
+      topValue: hideBottomBar ? item.atMax : item.atMax - item.at140W,
+      totalValue: item.atMax,
+      reversed: true,
+      hideBottomLabel,
+    };
+  });
+
+const maxStackedValue = Math.max(...data.map(item => item.totalValue));
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    const item = data.find(d => d.name === label);
+    return (
+      <div className="bg-gray-900 border border-gray-700 p-4 rounded-none shadow-[4px_4px_0px_0px_rgba(255,0,255,1)]">
+        <p className="text-white font-bold mb-2 font-display uppercase tracking-wider">{label}</p>
+        <p className="text-gray-400 text-xs mb-3 font-mono">{item?.subtitle}</p>
+        <p className="text-neon-cyan mb-1 font-mono text-sm">@140W: <strong>{payload[0]?.value} min</strong></p>
+        <p className="text-neon-magenta mb-2 font-mono text-sm">@{item?.maxW}W: <strong>{payload[1]?.value} min</strong></p>
+        <div className="border-t border-gray-800 pt-2 mt-2">
+           <p className="text-gray-500 text-xs font-mono">Sustains max: {item?.sustains}</p>
+        </div>
+      </div>
+    );
+  }
+  return null;
+};
+
+const BaseValueLabel = ({ x, y, width, value, payload }) => {
+  const name = payload?.name || '';
+  if (payload?.hideBottomLabel || name.includes('Edge X100') || name.includes('Anker 737') || name.includes('AOHi') || value === 0) return null;
+  
+  const isPrime300W = name.includes('Prime 300W');
+  const labelX = x + width / 2;
+  const labelY = y + 20;
+  return (
+    <text
+      x={labelX}
+      y={labelY}
+      fill={isPrime300W ? '#000000' : '#fff'}
+      fontSize="12"
+      fontWeight="bold"
+      textAnchor="middle"
+      fontFamily="monospace"
+    >
+      {value}
+    </text>
+  );
+};
+
+const TotalValueLabel = ({ x, y, width, value, payload }) => {
+  const name = payload?.name || '';
+  const isPrime300W = name.includes('Prime 300W');
+  const labelX = x + width / 2;
+  const labelY = y - 8;
+  return (
+    <text
+      x={labelX}
+      y={labelY}
+      fill={isPrime300W ? '#000000' : '#ffffff'}
+      fontSize="12"
+      fontWeight="bold"
+      textAnchor="middle"
+      fontFamily="monospace"
+    >
+      {value}
+    </text>
+  );
+};
+
+export default function PowerBankChart() {
+  return (
+    <div className="bg-black border-2 border-gray-800 p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(3,4,10,1)] relative overflow-hidden">
+      {/* Decorative Grid Background */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none" 
+           style={{ backgroundImage: 'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+      </div>
+
+      <div className="relative z-10 mb-8 pl-4 border-l-4 border-neon-magenta">
+        <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-2 uppercase tracking-tight">
+          45 Minutes to Boarding
+        </h2>
+        <p className="text-gray-400 text-lg md:text-xl font-light">
+          Your laptop empties power banks fast. How fast do top power banks refill?
+        </p>
+      </div>
+
+      <div className="flex gap-6 mb-8 items-center text-sm font-mono uppercase tracking-wider pl-4">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 bg-neon-magenta"></div>
+          <span className="text-white">Max Input</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 bg-neon-cyan opacity-50"></div>
+          <span className="text-gray-400">140W Input</span>
+        </div>
+      </div>
+      
+      <div className="relative z-10 pr-4">
+        <ResponsiveContainer width="100%" height={250}>
+          <BarChart
+            data={data}
+            margin={{ top: 20, right: 0, left: 0, bottom: 0 }}
+            barCategoryGap="20%"
+          >
+            <defs>
+              <linearGradient id="neonCyanGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#00FFFF" stopOpacity={0.6}/>
+                <stop offset="100%" stopColor="#00FFFF" stopOpacity={0.3}/>
+              </linearGradient>
+              <linearGradient id="neonMagentaGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#FF00FF" />
+                <stop offset="100%" stopColor="#D900D9" />
+              </linearGradient>
+            </defs>
+            
+            <CartesianGrid strokeDasharray="3 3" stroke="#1f1f1f" vertical={false} />
+            <XAxis 
+              dataKey="name" 
+              tick={false}
+              axisLine={{ stroke: '#333333' }}
+              tickLine={false}
+              height={10}
+            />
+            <YAxis 
+              tick={{ fill: '#666', fontSize: 10, fontFamily: 'monospace' }}
+              axisLine={{ stroke: '#333333' }}
+              tickLine={{ stroke: '#333333' }}
+              label={{ 
+                value: 'TIME (MIN)', 
+                angle: -90, 
+                position: 'insideLeft',
+                fill: '#666',
+                fontSize: 10,
+                fontFamily: 'monospace',
+                offset: 10
+              }}
+              domain={[0, Math.ceil(maxStackedValue / 10) * 10]}
+            />
+            <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255, 255, 255, 0.05)' }} />
+            <ReferenceLine y={45} stroke="#EAFF00" strokeDasharray="4 4" label={{ value: '45 MIN TARGET', fill: '#EAFF00', fontSize: 10, position: 'right', fontFamily: 'monospace' }} />
+
+            <Bar 
+              dataKey="baseValue" 
+              name="@Max Input Wattage" 
+              fill="url(#neonMagentaGradient)"
+              stackId="chargeTime"
+              stroke="#000"
+              strokeWidth={0}
+            >
+              {data.map((entry, index) => {
+                const fillColor = entry.reversed ? "url(#neonCyanGradient)" : "url(#neonMagentaGradient)";
+                return <Cell key={`cell-base-${index}`} fill={fillColor} />;
+              })}
+              <LabelList dataKey="baseValue" position="top" content={<BaseValueLabel />} />
+            </Bar>
+
+            <Bar 
+              dataKey="topValue" 
+              name="@140W (Apple charger)" 
+              fill="url(#neonCyanGradient)"
+              stackId="chargeTime"
+              stroke="#000"
+              strokeWidth={0}
+            >
+              {data.map((entry, index) => {
+                const fillColor = entry.reversed ? "url(#neonMagentaGradient)" : "url(#neonCyanGradient)";
+                return <Cell key={`cell-top-${index}`} fill={fillColor} />;
+              })}
+              <LabelList dataKey="totalValue" position="top" content={<TotalValueLabel />} />
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+
+      <div className="mt-8 overflow-x-auto relative">
+        <table className="w-full text-left border-collapse min-w-[600px] font-mono text-sm">
+           <colgroup>
+            <col className="w-48 bg-gray-900/50" />
+            {data.map((item, index) => (
+              <col key={index} />
+            ))}
+          </colgroup>
+          <thead>
+            <tr className="border-b-2 border-gray-700">
+              <th className="p-4 text-neon-cyan uppercase tracking-widest text-xs font-bold">Model</th>
+              {data.map((item, index) => (
+                <th key={index} className="p-4 text-center align-top">
+                  <div className="text-white font-bold text-xs">{item.name.replace(/ \(.*?\)/, '')}</div>
+                  <div className="text-gray-600 text-[10px] mt-1 font-normal">{item.subtitle}</div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-gray-800 hover:bg-white/5 transition-colors">
+              <td className="p-4 font-bold text-gray-400 text-xs uppercase">Max Input</td>
+              {data.map((item, index) => (
+                <td key={index} className="p-4 text-center font-bold text-white">{item.maxW}W</td>
+              ))}
+            </tr>
+            <tr className="border-b border-gray-800 hover:bg-white/5 transition-colors">
+              <td className="p-4 font-bold text-gray-400 text-xs uppercase">Input Throttling</td>
+              {data.map((item, index) => (
+                <td key={index} className="p-4 text-center text-xs text-neon-yellow">
+                   {(item.sustains === 'Full' || item.name.includes('AOHi')) ? '-' : item.sustains}
+                   {item.sustains !== 'Full' && !item.name.includes('AOHi') && `, ${item.sustainedW}W`}
+                </td>
+              ))}
+            </tr>
+            <tr className="border-b-2 border-neon-magenta bg-neon-magenta/10">
+              <td className="p-4 font-bold text-neon-magenta text-xs uppercase">Charge Time (Max)</td>
+              {data.map((item, index) => (
+                <td key={index} className="p-4 text-center font-bold text-neon-magenta">{item.atMax} min</td>
+              ))}
+            </tr>
+            <tr className="border-b border-gray-800 bg-neon-cyan/5">
+              <td className="p-4 font-bold text-neon-cyan text-xs uppercase">Charge Time (140W)</td>
+              {data.map((item, index) => (
+                <td key={index} className="p-4 text-center font-bold text-neon-cyan">{item.at140W} min</td>
+              ))}
+            </tr>
+             <tr className="hover:bg-white/5 transition-colors">
+              <td className="p-4 font-bold text-gray-500 text-xs uppercase">Output Notes</td>
+              {data.map((item, index) => (
+                <td key={index} className="p-4 text-center text-[10px] text-gray-500 leading-tight">
+                  {item.outputThrottling || '-'}
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,12 @@
+{
+  "name": "UGREEN 165W",
+  "subtitle": "",
+  "at140W": 27,
+  "atMax": 27,
+  "maxW": 99,
+  "maxProfile": "99W (14min)→38W",
+  "sustainedW": 99,
+  "sustains": "14 min",
+  "outputThrottling": ""
+}
+

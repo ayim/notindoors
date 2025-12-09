@@ -1,0 +1,11 @@
+{
+  "name": "Edge X100 (27k)",
+  "subtitle": "27k",
+  "at140W": 73,
+  "atMax": 73,
+  "maxW": 140,
+  "sustainedW": 140,
+  "sustains": "Full",
+  "outputThrottling": ""
+}
+

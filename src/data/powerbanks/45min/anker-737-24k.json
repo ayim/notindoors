@@ -1,0 +1,11 @@
+{
+  "name": "Anker 737 (24k)",
+  "subtitle": "24k",
+  "at140W": 46,
+  "atMax": 46,
+  "maxW": 140,
+  "sustainedW": 140,
+  "sustains": "Full",
+  "outputThrottling": "-"
+}
+

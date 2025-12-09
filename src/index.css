@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #03040a;
+  --neon-yellow: #EAFF00;
+  --neon-lime: #00FF66;
+  --neon-magenta: #FF00FF;
+  --neon-cyan: #00FFFF;
+}
+
+body {
+  @apply bg-background text-gray-200 font-sans antialiased;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbar for a tech feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-800 border border-background;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neon-magenta;
+}
+
+/* 
+  Legacy styles below - will be refactored into Tailwind classes 
+  Keeping them temporarily to ensure layout structure holds until component update 
+*/
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  /* background: radial-gradient(circle at top, rgba(235, 128, 252, 0.2), transparent 45%), #03040a; */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.app-header h2 {
+  margin-top: 4px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  border-color: #7c3aed;
+  color: #ffffff;
+}
+
+.nav-link.active {
+  background: #7c3aed;
+  color: #ffffff;
+  border-color: #7c3aed;
+}
+
+.app-main {
+  flex: 1;
+}
+
+.page-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-top: 8px;
+  max-width: 720px;
+  line-height: 1.2;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a855f7;
+}
+
+.lead {
+  margin-top: 12px;
+  color: #cbd5f5;
+  line-height: 1.5;
+  max-width: 760px;
+}
+
+.card-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+  color: inherit;
+  gap: 8px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: #f472b6;
+  transform: translateY(-4px);
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: #cbd5f5;
+  line-height: 1.4;
+}
+
+.card-label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #f472b6;
+}
+
+.score-table-wrapper {
+  margin-top: 24px;
+  overflow-x: auto;
+}
+
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.score-table th,
+.score-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  font-size: 14px;
+}
+
+.score-table th {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-pass {
+  background: rgba(16, 185, 129, 0.15);
+  color: #4ade80;
+}
+
+.badge-warning {
+  background: rgba(248, 113, 113, 0.15);
+  color: #f87171;
+}
+
+.product-name {
+  font-weight: 600;
+}
+
+.product-subtitle {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.app-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #94a3b8;
+  padding: 12px 0;
+}

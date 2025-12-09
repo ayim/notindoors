@@ -1,0 +1,12 @@
+{
+  "name": "Prime 300W (26k)",
+  "subtitle": "100Wh",
+  "at140W": 47,
+  "atMax": 71,
+  "maxW": 250,
+  "maxProfile": "250W (12min)→160W",
+  "sustainedW": 140,
+  "sustains": "Full",
+  "outputThrottling": "100W at 34% | 0W at 17%"
+}
+

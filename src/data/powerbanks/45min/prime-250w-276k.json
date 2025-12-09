@@ -1,0 +1,11 @@
+{
+  "name": "Prime 250W (27.6k)",
+  "subtitle": "27.6k",
+  "at140W": 52,
+  "atMax": 48,
+  "maxW": 170,
+  "sustainedW": 170,
+  "sustains": "Full",
+  "outputThrottling": "165W at 20%"
+}
+

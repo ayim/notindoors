@@ -1,0 +1,12 @@
+{
+  "name": "Anker 87W",
+  "subtitle": "",
+  "at140W": 22,
+  "atMax": 22,
+  "maxW": 65,
+  "maxProfile": "65W sustained",
+  "sustainedW": 65,
+  "sustains": "Full",
+  "outputThrottling": ""
+}
+

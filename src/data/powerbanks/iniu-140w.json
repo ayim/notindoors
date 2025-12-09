@@ -1,0 +1,12 @@
+{
+  "name": "INIU 140W",
+  "subtitle": "",
+  "at140W": 32,
+  "atMax": 32,
+  "maxW": 97,
+  "maxProfile": "97W sustained",
+  "sustainedW": 97,
+  "sustains": "Full",
+  "outputThrottling": ""
+}
+

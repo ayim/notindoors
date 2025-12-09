@@ -1,0 +1,11 @@
+{
+  "name": "AOHi 310W (20k)",
+  "subtitle": "20k",
+  "at140W": 50,
+  "atMax": 50,
+  "maxW": 140,
+  "sustainedW": 140,
+  "sustains": "20 min",
+  "outputThrottling": ""
+}
+
