@@ -32,12 +32,15 @@ function HomePage() {
         <p className="text-2xl md:text-3xl text-gray-200 font-light leading-tight mb-8">
           Portable gear, tested for work and life.
         </p>
+        <p className="text-lg md:text-xl text-gray-400 font-light leading-tight mb-8 max-w-3xl">
+          What&apos;s the best power bank? Depends what you need. We tested 47 to find out.
+        </p>
         <div className="flex flex-wrap gap-4">
           <Link to="/products" className="inline-flex items-center justify-center px-8 py-4 bg-neon-yellow text-black font-bold uppercase tracking-wide border-2 border-neon-yellow hover:bg-transparent hover:text-neon-yellow hover:shadow-[4px_4px_0px_0px_#EAFF00] transition-all transform hover:-translate-y-1">
-            View Scoreboard ⚡
+            See Top Picks ⚡
           </Link>
           <Link to="/recharge-time" className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-bold uppercase tracking-wide border-2 border-white hover:bg-white hover:text-black hover:shadow-[4px_4px_0px_0px_#ffffff] transition-all transform hover:-translate-y-1">
-            See Lab Tests →
+            View All Data →
           </Link>
         </div>
       </section>
@@ -48,10 +51,11 @@ function HomePage() {
           <div className="absolute top-0 right-0 bg-neon-magenta text-black text-xs font-bold px-2 py-1 font-mono transform translate-x-full group-hover:translate-x-0 transition-transform">
             V3 DATA
           </div>
-          <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-magenta transition-colors">Recharge to 100%</h3>
-          <p className="text-gray-400 mb-6">How fast each pack refuels to full using Apple-grade chargers.</p>
+          <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-magenta transition-colors">What charges fastest?</h3>
+          <p className="text-gray-400 mb-3">Fastest 0-100% recharge time.</p>
+          <p className="text-neon-magenta font-mono text-sm mb-6">🏆 Cuktech 20 Pro · 67 min</p>
           <span className="inline-block border border-gray-700 px-4 py-2 text-xs font-mono uppercase text-gray-300 group-hover:border-neon-magenta group-hover:text-neon-magenta transition-colors">
-            Enter Lab →
+            See all charge times →
           </span>
         </Link>
         
@@ -59,10 +63,11 @@ function HomePage() {
           <div className="absolute top-0 right-0 bg-neon-yellow text-black text-xs font-bold px-2 py-1 font-mono transform translate-x-full group-hover:translate-x-0 transition-transform">
             NEW
           </div>
-          <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-yellow transition-colors">Burst recharge</h3>
-          <p className="text-gray-400 mb-6">How much energy a pack can absorb in the first 20 minutes.</p>
+          <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-yellow transition-colors">What if I only have 20 min?</h3>
+          <p className="text-gray-400 mb-3">Most charge absorbed in 20 minutes.</p>
+          <p className="text-neon-yellow font-mono text-sm mb-6">🏆 Anker Prime · 38Wh</p>
           <span className="inline-block border border-gray-700 px-4 py-2 text-xs font-mono uppercase text-gray-300 group-hover:border-neon-yellow group-hover:text-neon-yellow transition-colors">
-            Enter Lab →
+            See burst data →
           </span>
         </Link>
 
@@ -70,10 +75,11 @@ function HomePage() {
            <div className="absolute top-0 right-0 bg-neon-cyan text-black text-xs font-bold px-2 py-1 font-mono transform translate-x-full group-hover:translate-x-0 transition-transform">
             RANKED
           </div>
-          <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-cyan transition-colors">Scoreboard</h3>
-          <p className="text-gray-400 mb-6">A simple ranking of which power banks can actually keep laptops alive.</p>
+          <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-cyan transition-colors">What&apos;s the best value?</h3>
+          <p className="text-gray-400 mb-3">Best performance per dollar.</p>
+          <p className="text-neon-cyan font-mono text-sm mb-6">🏆 Baseus 65W · $42</p>
           <span className="inline-block border border-gray-700 px-4 py-2 text-xs font-mono uppercase text-gray-300 group-hover:border-neon-cyan group-hover:text-neon-cyan transition-colors">
-            View Ranks →
+            See value rankings →
           </span>
         </Link>
       </section>
