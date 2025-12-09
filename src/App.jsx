@@ -5,8 +5,8 @@ import ProductScores from './ProductScores.jsx';
 
 const navLinks = [
   { to: '/', label: 'Laptop power bank' },
-  { to: '/laptop-chargers', label: 'Laptop wall chargers (TBD)' },
-  { to: '/cars', label: 'EVs & rental cars (coming soon)' },
+  { to: '/laptop-chargers', label: 'Laptop wall chargers', tooltip: 'Coming soon', disabled: true },
+  { to: '/cars', label: 'EVs & rental cars', tooltip: 'Coming soon', disabled: true  },
 ];
 
 const secondaryLinks = [
@@ -104,20 +104,7 @@ function HomePage() {
 function AppShell() {
   const location = useLocation();
 
-  const isPrimaryActive = (to) => {
-    const path = location.pathname;
-    const laptopPowerBankPaths = ['/', '/burst-recharge', '/recharge-time', '/leaderboard', '/products'];
-    if (to === '/') {
-      return laptopPowerBankPaths.some(p => path === p || path.startsWith(p));
-    }
-    if (to === '/laptop-chargers') {
-      return path.startsWith('/laptop-chargers');
-    }
-    if (to === '/cars') {
-      return path.startsWith('/cars');
-    }
-    return false;
-  };
+  const isPrimaryActive = (to) => location.pathname.startsWith(to);
 
   const isSecondaryActive = (to) => {
     const path = location.pathname;
@@ -156,26 +143,32 @@ function AppShell() {
           <p className="font-mono text-neon-magenta text-xs tracking-[0.2em] uppercase mb-1">r/chargingsheet lab</p>
           <h2 className="text-2xl font-bold text-white font-display tracking-tight">Portable gear, tested</h2>
         </div>
-          <nav className="flex flex-wrap gap-3">
-            {navLinks.map(link => {
-              const active = isPrimaryActive(link.to);
-              return (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  end={link.to === '/'}
-                  className={`
+        <nav className="flex flex-wrap gap-3">
+          {navLinks.map(link => {
+            const active = isPrimaryActive(link.to);
+            const disabled = link.disabled;
+            const baseInactive = disabled
+              ? 'text-gray-600 border-gray-800 opacity-60 cursor-not-allowed'
+              : 'text-gray-400 border-gray-800 hover:text-neon-lime hover:border-neon-lime hover:shadow-[2px_2px_0px_0px_#00FF66] bg-black';
+            const baseActive = disabled
+              ? 'bg-neon-lime/20 text-black/60 border-neon-lime/40 cursor-not-allowed'
+              : 'bg-neon-lime text-black border-neon-lime shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] font-bold';
+            return (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                end={link.to === '/'}
+                title={link.tooltip || ''}
+                className={`
                     px-4 py-2 font-mono text-xs uppercase tracking-wider border transition-all duration-200
-                    ${active 
-                      ? 'bg-neon-lime text-black border-neon-lime shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] font-bold' 
-                      : 'text-gray-400 border-gray-800 hover:text-neon-lime hover:border-neon-lime hover:shadow-[2px_2px_0px_0px_#00FF66] bg-black'}
+                    ${active ? baseActive : baseInactive}
                   `}
-                >
-                  {link.label}
-                </NavLink>
-              );
-            })}
-          </nav>
+              >
+                {link.label}
+              </NavLink>
+            );
+          })}
+        </nav>
       </header>
 
       {/* Secondary nav for chart/product views */}
