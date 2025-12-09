@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, NavLink, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, NavLink, Link, useLocation, Navigate } from 'react-router-dom';
 import PowerBankChart from './PowerBankChart.jsx';
 import PowerBankChart20Min from './PowerBankChart20Min.jsx';
 import ProductScores from './ProductScores.jsx';
@@ -200,7 +200,7 @@ function AppShell() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/leaderboard" element={<ProductScores />} />
-          <Route path="/products" element={<ProductScores />} />
+          <Route path="/products" element={<Navigate to="/leaderboard" replace />} />
           <Route path="/recharge-time" element={<PowerBankChart />} />
           <Route path="/burst-recharge" element={<PowerBankChart20Min />} />
           <Route path="/laptop-chargers" element={<LaptopChargersComingSoon />} />
