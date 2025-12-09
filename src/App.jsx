@@ -4,7 +4,7 @@ import PowerBankChart20Min from './PowerBankChart20Min.jsx';
 import ProductScores from './ProductScores.jsx';
 
 const navLinks = [
-  { to: '/', label: 'Laptop power bank' },
+  { to: '/', label: 'Laptop power banks' },
   { to: '/', label: 'Laptop wall chargers', tooltip: 'Coming soon', disabled: true },
   { to: '/', label: 'EVs & rental cars', tooltip: 'Coming soon', disabled: true  },
 ];
