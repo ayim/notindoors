@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "powerbanks:validate": "node scripts/validate-powerbanks.js",
+    "powerbanks:sync": "node scripts/validate-powerbanks.js --write"
   },
   "dependencies": {
     "react": "^18.2.0",
