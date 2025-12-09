@@ -128,7 +128,7 @@ export default function App() {
         <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-gray-800 mb-12">
           <div>
             <p className="font-mono text-neon-magenta text-xs tracking-[0.2em] uppercase mb-1">notindoors</p>
-            <h2 className="text-2xl font-bold text-white font-display tracking-tight">Power Bank Insights</h2>
+            <h2 className="text-2xl font-bold text-white font-display tracking-tight">Portable gear, tested</h2>
           </div>
           <nav className="flex flex-wrap gap-3">
             {navLinks.map(link => (
