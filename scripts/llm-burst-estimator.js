@@ -47,7 +47,7 @@ if (!apiKey) {
   process.exit(1);
 }
 
-const MODEL = process.env.OPENROUTER_MODEL || 'grok-code-fast-1'; // override via env if needed
+const MODEL = 'z-ai/glm-4.6'; // override via env if needed
 const ENDPOINT = process.env.OPENROUTER_BASE_URL || 'https://openrouter.ai/api/v1/chat/completions';
 
 const promptTemplate = (pack) => {
@@ -136,10 +136,14 @@ function savePack(file, data) {
 
 async function main() {
   const packs = loadPacks();
+  // By default overwrite all bursts (including non-LLM) as requested.
+  const overwriteAll = process.env.LLM_OVERWRITE_ALL !== 'false';
   let updated = 0;
   for (const { file, data } of packs) {
-    const hasBurst = data.burst && !data.burst.estimatedByLLM;
-    if (hasBurst) continue;
+    if (!overwriteAll) {
+      const hasNonLLMBurst = data.burst && !data.burst.estimatedByLLM;
+      if (hasNonLLMBurst) continue;
+    }
     const prompt = promptTemplate(data);
     try {
       const resp = await callLLM(prompt);
