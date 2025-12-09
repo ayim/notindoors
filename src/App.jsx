@@ -77,7 +77,7 @@ function HomePage() {
           </div>
           <h3 className="text-3xl font-display font-bold text-white mb-4 group-hover:text-neon-cyan transition-colors">What&apos;s the best value?</h3>
           <p className="text-gray-400 mb-3">Best performance per dollar.</p>
-          <p className="text-neon-cyan font-mono text-sm mb-6">🏆 Baseus 65W · $42</p>
+          <p className="text-neon-cyan font-mono text-sm mb-6">🏆 Cuktech 15 Ultra · €79.99</p>
           <span className="inline-block border border-gray-700 px-4 py-2 text-xs font-mono uppercase text-gray-300 group-hover:border-neon-cyan group-hover:text-neon-cyan transition-colors">
             See value rankings →
           </span>
