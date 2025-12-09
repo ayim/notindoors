@@ -33,12 +33,10 @@ export default function ProductScores() {
       <div className="border-l-4 border-neon-cyan pl-6">
         <p className="text-neon-cyan font-mono text-xs uppercase tracking-widest mb-2">Product Scorecard</p>
         <h1 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 uppercase leading-none">
-          Do they recover enough energy for Apple work in 20 minutes?
+          Which power banks are actually worth it?
         </h1>
         <p className="text-xl text-gray-400 font-light max-w-3xl">
-          Scores depend on the burst energy (at max input) delivered during a 20-minute recharge.
-          We flag MacBook Air (66.5Wh) refills, MacBook Pro 50% top-ups, and whether the whole pack
-          regains 100Wh in under an hour.
+          Ranked by what matters: real capacity, sustained output, recharge speed, and value. No spec sheet numbers—just what we measured.
         </p>
       </div>
 
