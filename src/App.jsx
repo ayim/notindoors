@@ -32,29 +32,14 @@ function HomePage() {
         <p className="text-2xl md:text-3xl text-gray-200 font-light leading-tight mb-3">
           Keep your laptop alive anywhere.
         </p>
-        <p className="text-lg md:text-xl text-gray-400 font-light leading-tight mb-6 max-w-3xl">
-          176 power banks tested. Real data, no spec sheet BS.
+        <p className="text-lg md:text-xl text-gray-400 font-light leading-tight mb-4 max-w-3xl">
+          Every Amazon listing looks the same. We tested 176 to find the ones that actually deliver.
         </p>
-        <form className="w-full max-w-2xl mb-6 flex flex-col gap-3">
-          <div className="flex flex-col md:flex-row gap-3">
-            <input
-              type="text"
-              placeholder="What do you need to keep running?"
-              className="flex-1 px-4 py-3 bg-gray-900 border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-neon-cyan font-mono text-sm uppercase tracking-tight"
-            />
-            <button
-              type="button"
-              className="px-6 py-3 bg-neon-cyan text-black font-bold uppercase tracking-wide border-2 border-neon-cyan hover:bg-transparent hover:text-neon-cyan hover:shadow-[4px_4px_0px_0px_#00FFFF] transition-all"
-            >
-              🔍
-            </button>
-          </div>
-          <div className="text-gray-500 text-sm font-mono flex flex-wrap gap-2">
-            <span className="px-2 py-1 border border-gray-800 bg-gray-900/60">Feed a hungry ThinkPad</span>
-            <span className="px-2 py-1 border border-gray-800 bg-gray-900/60">MacBook all day</span>
-            <span className="px-2 py-1 border border-gray-800 bg-gray-900/60">20 min before your next call</span>
-          </div>
-        </form>
+        <p className="text-sm md:text-base text-gray-500 font-mono flex flex-wrap gap-2 mb-6">
+          <span className="px-2 py-1 border border-gray-800 bg-gray-900/60">Feed a hungry ThinkPad</span>
+          <span className="px-2 py-1 border border-gray-800 bg-gray-900/60">MacBook all day</span>
+          <span className="px-2 py-1 border border-gray-800 bg-gray-900/60">20 min before your next call</span>
+        </p>
         <div className="flex flex-wrap gap-4">
           <Link to="/products" className="inline-flex items-center justify-center px-8 py-4 bg-neon-yellow text-black font-bold uppercase tracking-wide border-2 border-neon-yellow hover:bg-transparent hover:text-neon-yellow hover:shadow-[4px_4px_0px_0px_#EAFF00] transition-all transform hover:-translate-y-1">
             See Top Picks ⚡
